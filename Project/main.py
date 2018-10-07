@@ -5,7 +5,7 @@ import random
 KPU_WIDTH, KPU_HEIGHT = 800, 600
 open_canvas(KPU_WIDTH, KPU_HEIGHT)
 kpu_ground = load_image('Resource\hospital1.png')
-character = load_image('Resource\walk\hero.png')
+character = load_image('Resource\walk\walk.png')
 
 def handle_events():
     events = get_events()
@@ -25,11 +25,11 @@ def draw_line(p1, p2):
         y = (1 - t) * p1[1] + t * p2[1]
 
         if p1<p2:
-            character.clip_draw(frame * 31, 0, 31, 100, x, y)
+            character.clip_draw(frame * 32, 0, 32, 100, x, y)
         elif p1>p2:
-            character.clip_draw(frame * 31, 0, 31, 100, x, y)
+            character.clip_draw(frame * 32, 0, 32, 100, x, y)
         update_canvas()
-        frame = (frame + 1) % 8
+        frame = (frame + 1) % 6
         delay(0.5)
         handle_events()
     pass
