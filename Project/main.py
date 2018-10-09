@@ -6,7 +6,7 @@ KPU_WIDTH, KPU_HEIGHT = 800, 600
 open_canvas(KPU_WIDTH, KPU_HEIGHT)
 kpu_ground = load_image('Resource\hospital1.png')
 
-move_down1 = load_image('Resource\Main.png')
+move_down1 = load_image('Resource\hero\idle.png')
 
 
 def handle_events():
@@ -27,11 +27,11 @@ def draw_line(p1, p2):
         y = (1 - t) * p1[1] + t * p2[1]
 
         if p1<p2:
-            move_down1.clip_draw(frame*51, 100, 51, 100, x, y)
+            move_down1.clip_draw(frame*32, 0, 32, 100, x, y)
         elif p1>p2:
-            move_down1.clip_draw(frame*51, 100, 51, 100, x, y)
+            move_down1.clip_draw(frame*32, 0, 32, 100, x, y)
         update_canvas()
-        frame = (frame + 1) % 6
+        frame = (frame + 1) % 8
         delay(0.1)
         handle_events()
     pass
