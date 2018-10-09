@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main.py" line="40" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/main.py" line="44" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aa2725e-72b8-40ae-b348-efa21b63c6f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DLeft/DLeft_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DLeft/DLeft_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DLeft/DLeft_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DLeft/DLeft_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DLeft/DLeft_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DLeft/DLeft_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DRight/DRight_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DRight/DRight_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DRight/DRight_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DRight/DRight_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DRight/DRight_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_DRight/DRight_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Down/Down_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Down/Down_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Down/Down_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Down/Down_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Down/Down_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Down/Down_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Right/Right_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Right/Right_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Right/Right_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Right/Right_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Right/Right_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Right/Right_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Up/Up_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Up/Up_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Up/Up_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Up/Up_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Up/Up_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Move_Up/Up_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/hero/Walk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/hero/Walk.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,12 +54,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="723" />
+          <entry key="py" value="919" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="723" />
+          <entry key="Python" value="919" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -111,11 +80,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="266">
+              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1539098814257" expanded="true" signature="149:428" ph="..." />
+                <element signature="e#458#520#0" />
+                <element signature="e#511#1438#0" />
+                <marker date="1539099436041" expanded="true" signature="149:427" ph="..." />
+                <marker date="1539099436041" expanded="true" signature="1729:1730" ph="..." />
               </folding>
             </state>
           </provider>
@@ -143,8 +115,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="717" />
-    <option name="y" value="1" />
+    <option name="x" value="606" />
+    <option name="y" value="2" />
     <option name="width" value="1260" />
     <option name="height" value="972" />
   </component>
@@ -235,7 +207,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="574" y="1" width="1008" height="777" extended-state="0" />
+    <frame x="485" y="2" width="1008" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2492276" />
@@ -260,6 +232,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Python/Lib/site-packages/pico2d/pico2d.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -270,11 +253,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="50" column="20" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        <state relative-caret-position="266">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1539098814257" expanded="true" signature="149:428" ph="..." />
+            <element signature="e#458#520#0" />
+            <element signature="e#511#1438#0" />
+            <marker date="1539099436041" expanded="true" signature="149:427" ph="..." />
+            <marker date="1539099436041" expanded="true" signature="1729:1730" ph="..." />
           </folding>
         </state>
       </provider>

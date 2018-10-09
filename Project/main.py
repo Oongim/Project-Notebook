@@ -13,11 +13,9 @@ class Hero:
         self.walk_mode=0   #0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
-
     def update(self):
         if(self.walk_mode<=8):
             self.frame=(self.frame+1)%6
-        pass
     def draw(self):
         if (self.walk_mode == 0):
             self.idle.clip_draw(self.frame*32,0,32,100,self.x,self.y)
@@ -37,6 +35,31 @@ class Hero:
             self.move.clip_draw(self.frame * 51, 110, 51, 100, self.x, self.y)
         elif (self.walk_mode == 8):
             self.move.clip_draw(self.frame * 43, 210, 43, 100, self.x, self.y)
+
+class NPC:
+    def __init__(self):
+        self.x,self.y=0,0
+        self.direct=0 #0=up 1= down 2= left 3= right
+        if(random.randint(0,8)==0):
+            self.image=load_image('Resource\\NPC\Girl1.png')
+        elif (random.randint(0, 8) == 1):
+            self.image = load_image('Resource\\NPC\Girl2.png')
+        elif (random.randint(0, 8) == 2):
+            self.image = load_image('Resource\\NPC\Girl3.png')
+        elif (random.randint(0, 8) == 3):
+            self.image = load_image('Resource\\NPC\Girl4.png')
+        elif (random.randint(0, 8) == 4):
+            self.image = load_image('Resource\\NPC\Girl5.png')
+        elif (random.randint(0, 8) == 5):
+            self.image = load_image('Resource\\NPC\Man1.png')
+        elif (random.randint(0, 8) == 6):
+            self.image = load_image('Resource\\NPC\Man2.png')
+        elif (random.randint(0, 8) == 7):
+            self.image = load_image('Resource\\NPC\Man3.png')
+        elif (random.randint(0, 8) == 8):
+            self.image = load_image('Resource\\NPC\Man4.png')
+
+
 
 def handle_events():
     events = get_events()
