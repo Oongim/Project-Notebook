@@ -40,26 +40,35 @@ class NPC:
     def __init__(self):
         self.x,self.y=0,0
         self.direct=0 #0=up 1= down 2= left 3= right
-        if(random.randint(0,8)==0):
+        self.form=random.randint(0, 8)
+        if( self.form==0):
             self.image=load_image('Resource\\NPC\Girl1.png')
-        elif (random.randint(0, 8) == 1):
+        elif ( self.form== 1):
             self.image = load_image('Resource\\NPC\Girl2.png')
-        elif (random.randint(0, 8) == 2):
+        elif ( self.form == 2):
             self.image = load_image('Resource\\NPC\Girl3.png')
-        elif (random.randint(0, 8) == 3):
+        elif ( self.form == 3):
             self.image = load_image('Resource\\NPC\Girl4.png')
-        elif (random.randint(0, 8) == 4):
+        elif ( self.form == 4):
             self.image = load_image('Resource\\NPC\Girl5.png')
-        elif (random.randint(0, 8) == 5):
+        elif ( self.form == 5):
             self.image = load_image('Resource\\NPC\Man1.png')
-        elif (random.randint(0, 8) == 6):
+        elif ( self.form == 6):
             self.image = load_image('Resource\\NPC\Man2.png')
-        elif (random.randint(0, 8) == 7):
+        elif ( self.form == 7):
             self.image = load_image('Resource\\NPC\Man3.png')
-        elif (random.randint(0, 8) == 8):
+        elif ( self.form == 8):
             self.image = load_image('Resource\\NPC\Man4.png')
 
-
+    def draw(self):
+        if (self.direct == 0):
+            self.image.clip_draw(self.direct*32,0,32,100,self.x,self.y)
+        elif (self.direct == 1):
+            self.image.clip_draw(self.direct*32,0,33,100,self.x,self.y)
+        elif (self.direct == 2):
+            self.image.clip_draw(self.direct * 32, 0, 33, 100, self.x, self.y)
+        elif (self.direct == 3):
+            self.image.clip_draw(self.direct * 32, 0, 42, 100, self.x, self.y)
 
 def handle_events():
     events = get_events()
@@ -68,24 +77,26 @@ def handle_events():
             close_canvas()
 
 def draw_line(p1, p2):
+    while True:
+        hero=Hero()
+        npc=NPC()
+        frame = 0
+        hero.walk_mode=8
+        for i in range(0,100+1,2):
+            clear_canvas()
+            kpu_ground.draw(WIDTH // 2, HEIGHT // 2)
 
-    hero=Hero()
-    frame = 0
-    hero.walk_mode=8
-    for i in range(0,100+1,2):
-        clear_canvas()
-        kpu_ground.draw(WIDTH // 2, HEIGHT // 2)
-
-        t= i /100
-        hero.x = (1 - t) * p1[0] + t * p2[0]
-        hero.y = (1 - t) * p1[1] + t * p2[1]
-
-        hero.draw()
-
-        update_canvas()
-        hero.update()
-        delay(0.1)
-        handle_events()
+            t= i /100
+            hero.x = (1 - t) * p1[0] + t * p2[0]
+            hero.y = (1 - t) * p1[1] + t * p2[1]
+            npc.x=100
+            npc.y=300
+            hero.draw()
+            npc.draw()
+            update_canvas()
+            hero.update()
+            delay(0.1)
+            handle_events()
     pass
 
 

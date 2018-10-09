@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main.py" line="44" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/main.py" line="72" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aa2725e-72b8-40ae-b348-efa21b63c6f1" name="Default Changelist" comment="">
@@ -54,12 +54,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="919" />
+          <entry key="py" value="1089" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="919" />
+          <entry key="Python" value="1089" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -80,14 +80,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="-538">
+              <caret line="60" column="61" lean-forward="true" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#458#520#0" />
-                <element signature="e#511#1438#0" />
-                <marker date="1539099436041" expanded="true" signature="149:427" ph="..." />
-                <marker date="1539099436041" expanded="true" signature="1729:1730" ph="..." />
+                <marker date="1539100305382" expanded="true" signature="149:427" ph="..." />
+                <marker date="1539100305382" expanded="true" signature="3005:3006" ph="..." />
               </folding>
             </state>
           </provider>
@@ -216,7 +214,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3281493" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39968896" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -232,17 +230,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Python/Lib/site-packages/pico2d/pico2d.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -253,14 +240,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        <state relative-caret-position="-538">
+          <caret line="60" column="61" lean-forward="true" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#458#520#0" />
-            <element signature="e#511#1438#0" />
-            <marker date="1539099436041" expanded="true" signature="149:427" ph="..." />
-            <marker date="1539099436041" expanded="true" signature="1729:1730" ph="..." />
+            <marker date="1539100305382" expanded="true" signature="149:427" ph="..." />
+            <marker date="1539100305382" expanded="true" signature="3005:3006" ph="..." />
           </folding>
         </state>
       </provider>
