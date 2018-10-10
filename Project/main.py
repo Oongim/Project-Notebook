@@ -16,6 +16,7 @@ class Hero:
     def update(self):
         if(self.walk_mode<=8):
             self.frame=(self.frame+1)%6
+
     def draw(self):
         if (self.walk_mode == 0):
             self.idle.clip_draw(self.frame*32,0,32,100,self.x,self.y)
@@ -71,41 +72,24 @@ class NPC:
             self.image.clip_draw(self.direct * 32, 0, 42, 100, self.x, self.y)
 
 def handle_events():
+    global running
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
-            close_canvas()
+            running = False
 
-def draw_line(p1, p2):
-    while True:
-        hero=Hero()
-        npc=NPC()
-        frame = 0
-        hero.walk_mode=8
-        for i in range(0,100+1,2):
-            clear_canvas()
-            kpu_ground.draw(WIDTH // 2, HEIGHT // 2)
-
-            t= i /100
-            hero.x = (1 - t) * p1[0] + t * p2[0]
-            hero.y = (1 - t) * p1[1] + t * p2[1]
-            npc.x=100
-            npc.y=300
-            hero.draw()
-            npc.draw()
-            update_canvas()
-            hero.update()
-            delay(0.1)
-            handle_events()
-    pass
-
-
-size = 20
-points=[(random.randint(100,700),random.randint(100,500))for i in range(size)]
-n=1
-
-while True:
-    draw_line(points[n-1], points[n])
-    n=(n+1)%size
+#main
+hero=Hero()
+npc=[[NPC() for i in range(4)] for i in range(6)]
+running = True
+while running:
+    handle_events()
+    clear_canvas()
+    for i in range(5,0,-1):
+        for j in range(0,4):
+            npc[i][j].x=50*j+300
+            npc[i][j].y=50*i+100
+            npc[i][j].draw()
+    update_canvas()
     get_events()
-
+    delay(0.05)
