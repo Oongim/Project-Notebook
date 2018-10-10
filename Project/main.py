@@ -10,6 +10,7 @@ class Hero:
     def __init__(self ):
         self.x,self.y=0,0
         self.frame=0
+        self.position=2
         self.walk_mode=0   #0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
@@ -19,7 +20,7 @@ class Hero:
 
     def draw(self):
         if (self.walk_mode == 0):
-            self.idle.clip_draw(self.frame*32,0,32,100,self.x,self.y)
+            self.idle.clip_draw(self.frame*64,0,64,200,self.x,self.y)
         elif (self.walk_mode == 1):
             self.move.clip_draw(self.frame*33,630,33,100,self.x,self.y)
         elif (self.walk_mode == 2):
@@ -77,9 +78,10 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             running = False
-def make_NPCblank():
-    rand_num = random.randint(0, 3)
-    for i in range(0, 6):
+def make_NPCblank_Init():
+    rand_num = 2
+    npc[0][rand_num].direct = 5
+    for i in range(1, 6):
         if rand_num == 0:
             rand_num = random.randint(0, 1)
             npc[i][rand_num].direct = 5  # Blank Position
@@ -92,23 +94,34 @@ def make_NPCblank():
         elif rand_num == 3:
             rand_num = random.randint(2, 3)
             npc[i][rand_num].direct = 5  # Blank Position
-
+def draw_NPC():
+    for i in range(5,-1,-1):
+        for j in range(0,4):
+            npc[i][j].x=100*j+250
+            npc[i][j].y=100*i+100
+            npc[i][j].draw()
+def draw_hero():
+    hero.x = 100 * hero.position + 250
+    hero.y = 100
+    hero.draw()
+    hero.update()
 #main
 hero=Hero()
 npc=[[NPC() for i in range(4)] for i in range(6)]
 
-make_NPCblank()  #빈칸 생성
+make_NPCblank_Init()  #빈칸 생성
 
 
 running = True
 while running:
     handle_events()
     clear_canvas()
-    for i in range(5,-1,-1):
-        for j in range(0,4):
-            npc[i][j].x=100*j+250
-            npc[i][j].y=100*i+100
-            npc[i][j].draw()
+    #################################
+
+    draw_NPC()
+    draw_hero()
+
+    #################################
     update_canvas()
     get_events()
-    delay(0.05)
+    delay(0.2)
