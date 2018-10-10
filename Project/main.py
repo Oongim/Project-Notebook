@@ -15,28 +15,32 @@ class Hero:
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
     def update(self):
-        if(self.walk_mode<=8):
+        if(self.walk_mode==0):
             self.frame=(self.frame+1)%6
-
+        elif(self.walk_mode<=8):
+            self.frame = self.frame + 1
+            if(self.frame==6):
+                self.walk_mode = 0
+                self.frame = 0
     def draw(self):
         if (self.walk_mode == 0):
             self.idle.clip_draw(self.frame*64,0,64,200,self.x,self.y)
         elif (self.walk_mode == 1):
-            self.move.clip_draw(self.frame*33,630,33,100,self.x,self.y)
+            self.move.clip_draw(self.frame*66,1250,66,200,self.x,self.y)
         elif (self.walk_mode == 2):
-            self.move.clip_draw(self.frame * 33, 730, 33, 100, self.x, self.y)
+            self.move.clip_draw(self.frame * 66, 1460, 66, 200, self.x, self.y)
         elif (self.walk_mode == 3):
-            self.move.clip_draw(self.frame * 42, 320, 42, 100, self.x, self.y)
+            self.move.clip_draw(self.frame * 84, 640, 84, 200, self.x, self.y)
         elif (self.walk_mode == 4):
-            self.move.clip_draw(self.frame * 51, 420, 51, 100, self.x, self.y)
+            self.move.clip_draw(self.frame *102, 840, 102, 200, self.x, self.y)
         elif (self.walk_mode == 5):
-            self.move.clip_draw(self.frame * 43, 520, 43, 100, self.x, self.y)
+            self.move.clip_draw(self.frame * 86, 1040, 86, 200, self.x, self.y)
         elif (self.walk_mode == 6):
-            self.move.clip_draw(self.frame * 42, 0, 42, 100, self.x, self.y)
+            self.move.clip_draw(self.frame * 84, 0, 84, 200, self.x, self.y)
         elif (self.walk_mode == 7):
-            self.move.clip_draw(self.frame * 51, 110, 51, 100, self.x, self.y)
+            self.move.clip_draw(self.frame * 102, 220, 102, 200, self.x, self.y)
         elif (self.walk_mode == 8):
-            self.move.clip_draw(self.frame * 43, 210, 43, 100, self.x, self.y)
+            self.move.clip_draw(self.frame * 86, 420, 86, 200, self.x, self.y)
 
 class NPC:
     def __init__(self):
@@ -78,6 +82,17 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             running = False
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_RIGHT:
+                hero.position += 1
+                hero.walk_mode=1
+            elif event.key == SDLK_LEFT:
+                hero.position -= 1
+                hero.walk_mode = 1
+            elif event.key == SDLK_ESCAPE:
+                running = False
+
+
 def make_NPCblank_Init():
     rand_num = 2
     npc[0][rand_num].direct = 5

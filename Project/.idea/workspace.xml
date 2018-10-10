@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main.py" line="74" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/main.py" line="78" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aa2725e-72b8-40ae-b348-efa21b63c6f1" name="Default Changelist" comment="">
@@ -54,12 +54,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1852" />
+          <entry key="py" value="2007" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1852" />
+          <entry key="Python" value="2007" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -80,14 +80,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="59" column="31" lean-forward="true" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+            <state relative-caret-position="285">
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#1571#3055#0" />
                 <element signature="e#3186#3733#0" />
-                <marker date="1539174492705" expanded="true" signature="149:451" ph="..." />
-                <marker date="1539174492705" expanded="true" signature="3030:3031" ph="..." />
-                <marker date="1539174492705" expanded="true" signature="3982:4073" ph="..." />
+                <marker date="1539176507067" expanded="true" signature="149:451" ph="..." />
+                <marker date="1539176507067" expanded="true" signature="3205:3206" ph="..." />
+                <marker date="1539176507067" expanded="true" signature="4493:4584" ph="..." />
               </folding>
             </state>
           </provider>
@@ -115,7 +116,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="562" />
+    <option name="x" value="847" />
+    <option name="y" value="47" />
     <option name="width" value="1260" />
     <option name="height" value="972" />
   </component>
@@ -206,7 +208,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="450" y="0" width="1008" height="777" extended-state="0" />
+    <frame x="678" y="38" width="1008" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2492276" />
@@ -278,14 +280,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="59" column="31" lean-forward="true" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        <state relative-caret-position="285">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#1571#3055#0" />
             <element signature="e#3186#3733#0" />
-            <marker date="1539174492705" expanded="true" signature="149:451" ph="..." />
-            <marker date="1539174492705" expanded="true" signature="3030:3031" ph="..." />
-            <marker date="1539174492705" expanded="true" signature="3982:4073" ph="..." />
+            <marker date="1539176507067" expanded="true" signature="149:451" ph="..." />
+            <marker date="1539176507067" expanded="true" signature="3205:3206" ph="..." />
+            <marker date="1539176507067" expanded="true" signature="4493:4584" ph="..." />
           </folding>
         </state>
       </provider>
