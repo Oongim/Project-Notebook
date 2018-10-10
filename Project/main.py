@@ -63,13 +63,13 @@ class NPC:
 
     def draw(self):
         if (self.direct == 0):
-            self.image.clip_draw(self.direct*32,0,32,100,self.x,self.y)
+            self.image.clip_draw(self.direct*64,0,64,200,self.x,self.y)
         elif (self.direct == 1):
-            self.image.clip_draw(self.direct*32,0,33,100,self.x,self.y)
+            self.image.clip_draw(self.direct*64,0,64,200,self.x,self.y)
         elif (self.direct == 2):
-            self.image.clip_draw(self.direct * 32, 0, 33, 100, self.x, self.y)
+            self.image.clip_draw(self.direct * 64, 0, 64, 200, self.x, self.y)
         elif (self.direct == 3):
-            self.image.clip_draw(self.direct * 32, 0, 42, 100, self.x, self.y)
+            self.image.clip_draw(self.direct * 64, 0, 64, 200, self.x, self.y)
 
 def handle_events():
     global running
@@ -104,10 +104,10 @@ running = True
 while running:
     handle_events()
     clear_canvas()
-    for i in range(5,0,-1):
+    for i in range(5,-1,-1):
         for j in range(0,4):
-            npc[i][j].x=50*j+300
-            npc[i][j].y=50*i+100
+            npc[i][j].x=100*j+250
+            npc[i][j].y=100*i+100
             npc[i][j].draw()
     update_canvas()
     get_events()

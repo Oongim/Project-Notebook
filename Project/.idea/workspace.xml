@@ -5,6 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aa2725e-72b8-40ae-b348-efa21b63c6f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Girl1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Girl1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Girl2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Girl2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Girl3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Girl3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Girl4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Girl4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Girl5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Girl5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Man1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Man1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Man2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Man2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Man3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Man3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/NPC/Man4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/NPC/Man4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/hero/Walk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/hero/Walk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/hero/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/hero/idle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,12 +65,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1511" />
+          <entry key="py" value="1616" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1511" />
+          <entry key="Python" value="1616" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -80,12 +91,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="154">
+              <caret line="68" column="32" lean-forward="true" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1539171616134" expanded="true" signature="149:427" ph="..." />
-                <marker date="1539171616134" expanded="true" signature="3006:3007" ph="..." />
+                <element signature="e#458#520#0" />
+                <element signature="e#549#1555#0" />
+                <marker date="1539173094300" expanded="false" signature="149:427" ph="..." />
+                <marker date="1539173094300" expanded="true" signature="3006:3007" ph="..." />
+                <marker date="1539173094300" expanded="true" signature="3181:3754" ph="..." />
               </folding>
             </state>
           </provider>
@@ -276,12 +290,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="154">
+          <caret line="68" column="32" lean-forward="true" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1539171616134" expanded="true" signature="149:427" ph="..." />
-            <marker date="1539171616134" expanded="true" signature="3006:3007" ph="..." />
+            <element signature="e#458#520#0" />
+            <element signature="e#549#1555#0" />
+            <marker date="1539173094300" expanded="false" signature="149:427" ph="..." />
+            <marker date="1539173094300" expanded="true" signature="3006:3007" ph="..." />
+            <marker date="1539173094300" expanded="true" signature="3181:3754" ph="..." />
           </folding>
         </state>
       </provider>
