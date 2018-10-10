@@ -77,10 +77,29 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             running = False
+def make_NPCblank():
+    rand_num = random.randint(0, 3)
+    for i in range(0, 6):
+        if rand_num == 0:
+            rand_num = random.randint(0, 1)
+            npc[i][rand_num].direct = 5  # Blank Position
+        elif rand_num == 1:
+            rand_num = random.randint(0, 2)
+            npc[i][rand_num].direct = 5  # Blank
+        elif rand_num == 2:
+            rand_num = random.randint(1, 3)
+            npc[i][rand_num].direct = 5  # Blank Position
+        elif rand_num == 3:
+            rand_num = random.randint(2, 3)
+            npc[i][rand_num].direct = 5  # Blank Position
 
 #main
 hero=Hero()
 npc=[[NPC() for i in range(4)] for i in range(6)]
+
+make_NPCblank()  #빈칸 생성
+
+
 running = True
 while running:
     handle_events()
