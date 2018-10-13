@@ -1,11 +1,11 @@
 from pico2d import *
 import random
+import game_framework
+
+#WIDTH, HEIGHT = 800, 600
+#open_canvas(WIDTH, HEIGHT)
 
 
-WIDTH, HEIGHT = 800, 600
-open_canvas(WIDTH, HEIGHT)
-
-kpu_ground=load_image('Resource\Hospital1.png')
 class Hero:
     def __init__(self ):
         self.x,self.y=0,0
@@ -15,6 +15,8 @@ class Hero:
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
     def update(self):
+        self.x = 100 * self.position + 250
+        self.y = 100
         if(self.walk_mode==0):
             self.frame=(self.frame+1)%6
         elif(self.walk_mode<=8):
@@ -136,18 +138,35 @@ def move_NPC():
     elif (npc[4][3].direct==5):
         make_NPC_New(3)
 
-def draw_hero():
-    hero.x = 100 * hero.position + 250
-    hero.y = 100
-    hero.draw()
-    hero.update()
+
+
+
+
+def enter():
+    global hero,npc
+    hero = Hero()
+    npc = [[NPC() for i in range(4)] for i in range(6)]
+    make_NPCblank_Init()  # 빈칸 생성
+
+def exit():
+    global hero, npc
+    del(hero)
+    del(npc)
+
+
+def pause():
+    pass
+
+
+def resume():
+    pass
 
 def handle_events():
     global running
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
-            running = False
+            game_framework.quit()
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_RIGHT:
                 hero.position += 1
@@ -169,25 +188,16 @@ def handle_events():
             elif event.key == SDLK_ESCAPE:
                 running = False
 
+def update():
+    hero.update()
 
-
-#main
-hero=Hero()
-npc=[[NPC() for i in range(4)] for i in range(6)]
-
-make_NPCblank_Init()  #빈칸 생성
-
-
-running = True
-while running:
-    handle_events()
+def draw():
     clear_canvas()
     #################################
 
     draw_NPC()
-    draw_hero()
+    hero.draw()
 
     #################################
     update_canvas()
-    get_events()
     delay(0.1)
