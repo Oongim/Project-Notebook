@@ -1,7 +1,7 @@
 from pico2d import *
 import random
 import game_framework
-
+import title_state
 #WIDTH, HEIGHT = 800, 600
 #open_canvas(WIDTH, HEIGHT)
 
@@ -138,12 +138,17 @@ def move_NPC():
     elif (npc[4][3].direct==5):
         make_NPC_New(3)
 
-
-
+def Collosion():
+    global end
+    for i in range(0, 4):
+        if 5==npc[0][i].direct:
+            if(hero.position!=i):
+                end=True
 
 
 def enter():
-    global hero,npc
+    global hero,npc,end
+    end=False
     hero = Hero()
     npc = [[NPC() for i in range(4)] for i in range(6)]
     make_NPCblank_Init()  # 빈칸 생성
@@ -175,6 +180,7 @@ def handle_events():
                 else:
                     hero.walk_mode=1
                     move_NPC()
+                    Collosion()
             elif event.key == SDLK_LEFT:
                 hero.position -= 1
                 if hero.position==-1:
@@ -182,15 +188,18 @@ def handle_events():
                 else:
                     hero.walk_mode = 1
                     move_NPC()
+                    Collosion()
             elif event.key == SDLK_UP:
                 hero.walk_mode = 1
                 move_NPC()
+                Collosion()
             elif event.key == SDLK_ESCAPE:
                 running = False
 
 def update():
     hero.update()
-
+    if(end):
+        game_framework.change_state(title_state)
 def draw():
     clear_canvas()
     #################################
