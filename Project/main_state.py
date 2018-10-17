@@ -2,81 +2,11 @@ from pico2d import *
 import random
 import game_framework
 import title_state
-#WIDTH, HEIGHT = 800, 600
-#open_canvas(WIDTH, HEIGHT)
+
+from Hero import Hero
+from NPC import NPC
 
 
-class Hero:
-    def __init__(self ):
-        self.x,self.y=0,0
-        self.frame=0
-        self.position=2
-        self.walk_mode=0   #0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
-        self.idle=load_image('Resource\hero\idle.png')
-        self.move=load_image('Resource\hero\Walk.png')
-    def update(self):
-        self.x = 100 * self.position + 250
-        self.y = 100
-        if(self.walk_mode==0):
-            self.frame=(self.frame+1)%6
-        elif(self.walk_mode<=8):
-            self.frame = self.frame + 1
-            if(self.frame==6):
-                self.walk_mode = 0
-                self.frame = 0
-    def draw(self):
-        if (self.walk_mode == 0):
-            self.idle.clip_draw(self.frame*64,0,64,200,self.x,self.y)
-        elif (self.walk_mode == 1):
-            self.move.clip_draw(self.frame*66,1250,66,200,self.x,self.y)
-        elif (self.walk_mode == 2):
-            self.move.clip_draw(self.frame * 66, 1460, 66, 200, self.x, self.y)
-        elif (self.walk_mode == 3):
-            self.move.clip_draw(self.frame * 84, 640, 84, 200, self.x, self.y)
-        elif (self.walk_mode == 4):
-            self.move.clip_draw(self.frame *102, 840, 102, 200, self.x, self.y)
-        elif (self.walk_mode == 5):
-            self.move.clip_draw(self.frame * 86, 1040, 86, 200, self.x, self.y)
-        elif (self.walk_mode == 6):
-            self.move.clip_draw(self.frame * 84, 0, 84, 200, self.x, self.y)
-        elif (self.walk_mode == 7):
-            self.move.clip_draw(self.frame * 102, 220, 102, 200, self.x, self.y)
-        elif (self.walk_mode == 8):
-            self.move.clip_draw(self.frame * 86, 420, 86, 200, self.x, self.y)
-
-class NPC:
-    def __init__(self):
-        self.x,self.y=0,0
-        self.direct=0 #0=up 1= down 2= left 3= right
-        self.form=random.randint(0, 8)
-        if( self.form==0):
-            self.image=load_image('Resource\\NPC\Girl1.png')
-        elif ( self.form== 1):
-            self.image = load_image('Resource\\NPC\Girl2.png')
-        elif ( self.form == 2):
-            self.image = load_image('Resource\\NPC\Girl3.png')
-        elif ( self.form == 3):
-            self.image = load_image('Resource\\NPC\Girl4.png')
-        elif ( self.form == 4):
-            self.image = load_image('Resource\\NPC\Girl5.png')
-        elif ( self.form == 5):
-            self.image = load_image('Resource\\NPC\Man1.png')
-        elif ( self.form == 6):
-            self.image = load_image('Resource\\NPC\Man2.png')
-        elif ( self.form == 7):
-            self.image = load_image('Resource\\NPC\Man3.png')
-        elif ( self.form == 8):
-            self.image = load_image('Resource\\NPC\Man4.png')
-
-    def draw(self):
-        if (self.direct == 0):
-            self.image.clip_draw(self.direct*64,0,64,200,self.x,self.y)
-        elif (self.direct == 1):
-            self.image.clip_draw(self.direct*64,0,64,200,self.x,self.y)
-        elif (self.direct == 2):
-            self.image.clip_draw(self.direct * 64, 0, 64, 200, self.x, self.y)
-        elif (self.direct == 3):
-            self.image.clip_draw(self.direct * 64, 0, 64, 200, self.x, self.y)
 
 def make_NPCblank_Init():
     rand_num = 2
