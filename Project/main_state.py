@@ -97,34 +97,14 @@ def resume():
     pass
 
 def handle_events():
-    global running
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        elif event.type == SDL_KEYDOWN:
-            if event.key == SDLK_RIGHT:
-                hero.position += 1
-                if hero.position==4:
-                    hero.position = 3
-                else:
-                    hero.walk_mode=1
-                    move_NPC()
-                    Collosion()
-            elif event.key == SDLK_LEFT:
-                hero.position -= 1
-                if hero.position==-1:
-                    hero.position = 0
-                else:
-                    hero.walk_mode = 1
-                    move_NPC()
-                    Collosion()
-            elif event.key == SDLK_UP:
-                hero.walk_mode = 1
-                move_NPC()
-                Collosion()
-            elif event.key == SDLK_ESCAPE:
-                running = False
+        elif event.key == SDLK_ESCAPE:
+            game_framework.quit()
+        else:
+            hero.handle_event(event)
 
 def update():
     hero.update()
