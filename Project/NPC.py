@@ -1,5 +1,6 @@
 from pico2d import *
 import random
+
 class NPC:
     def __init__(self):
         self.x,self.y=0,0

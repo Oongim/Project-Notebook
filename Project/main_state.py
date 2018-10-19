@@ -7,7 +7,11 @@ from Hero import Hero
 from NPC import NPC
 
 
-
+class Map:
+    def __init__(self):
+        self.image=load_image('Resource\mapUP.png')
+    def draw(self):
+        self.image.clip_draw(0, 0, 800, 600, 400, 300)
 def make_NPCblank_Init():
     rand_num = 2
     npc[0][rand_num].direct = 5
@@ -77,7 +81,8 @@ def Collosion():
 
 
 def enter():
-    global hero,npc,end
+    global hero,npc,end,map
+    map=Map()
     end=False
     hero = Hero()
     npc = [[NPC() for i in range(4)] for i in range(6)]
@@ -113,7 +118,7 @@ def update():
 def draw():
     clear_canvas()
     #################################
-
+    map.draw()
     draw_NPC()
     hero.draw()
 

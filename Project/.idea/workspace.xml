@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0aa2725e-72b8-40ae-b348-efa21b63c6f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HakSikMan.py" beforeDir="false" afterPath="$PROJECT_DIR$/HakSikMan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hero.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hero.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NPC.py" beforeDir="false" afterPath="$PROJECT_DIR$/NPC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_state.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,24 +45,24 @@
     <session id="-1901544627">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="5" />
-          <entry key="py" value="3351" />
+          <entry key="py" value="3483" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="3351" />
+          <entry key="Python" value="3483" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -84,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/start_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="-209">
+              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -105,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HakSikMan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="76">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -114,14 +113,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1827">
-              <caret line="104" column="31" lean-forward="true" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+            <state relative-caret-position="195">
+              <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1539791527858" expanded="true" signature="2089:2092" ph="..." />
+                <marker date="1539960280733" expanded="true" signature="170:322" ph="..." />
+                <marker date="1539960280733" expanded="true" signature="2289:2292" ph="..." />
               </folding>
             </state>
           </provider>
@@ -130,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NPC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+            <state relative-caret-position="209">
+              <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="71" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -139,11 +139,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hero.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+            <state relative-caret-position="304">
+              <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -154,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game_framework.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="1729">
               <caret line="91" selection-start-line="91" selection-end-line="91" />
             </state>
           </provider>
@@ -163,7 +163,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Python/Lib/site-packages/pico2d/pico2d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6175">
+            <state relative-caret-position="128">
               <caret line="336" selection-start-line="336" selection-end-line="336" />
             </state>
           </provider>
@@ -189,16 +189,16 @@
         <option value="$PROJECT_DIR$/title_state.py" />
         <option value="$PROJECT_DIR$/game_framework.py" />
         <option value="$PROJECT_DIR$/Boy.py" />
-        <option value="$PROJECT_DIR$/NPC.py" />
         <option value="$PROJECT_DIR$/HakSikMan.py" />
-        <option value="$PROJECT_DIR$/main_state.py" />
+        <option value="$PROJECT_DIR$/NPC.py" />
         <option value="$PROJECT_DIR$/Hero.py" />
+        <option value="$PROJECT_DIR$/main_state.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="597" />
-    <option name="y" value="21" />
+    <option name="x" value="647" />
+    <option name="y" value="17" />
     <option name="width" value="1260" />
     <option name="height" value="975" />
   </component>
@@ -310,7 +310,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="478" y="17" width="1008" height="780" extended-state="0" />
+    <frame x="518" y="14" width="1008" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2492276" />
@@ -374,13 +374,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/start_state.py">
+    <entry file="file://$PROJECT_DIR$/HakSikMan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="76">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_framework.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
@@ -391,57 +398,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python/Lib/site-packages/pico2d/pico2d.py">
+    <entry file="file://$PROJECT_DIR$/start_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6175">
-          <caret line="336" selection-start-line="336" selection-end-line="336" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NPC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game_framework.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HakSikMan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="-209">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_state.py">
+    <entry file="file://C:/Python/Lib/site-packages/pico2d/pico2d.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1827">
-          <caret line="104" column="31" lean-forward="true" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <marker date="1539791527858" expanded="true" signature="2089:2092" ph="..." />
-          </folding>
+        <state relative-caret-position="128">
+          <caret line="336" selection-start-line="336" selection-end-line="336" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hero.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+        <state relative-caret-position="304">
+          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NPC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <marker date="1539960280733" expanded="true" signature="170:322" ph="..." />
+            <marker date="1539960280733" expanded="true" signature="2289:2292" ph="..." />
           </folding>
         </state>
       </provider>
