@@ -96,6 +96,7 @@ class Hero:
                     self.walk_mode = 1
                     main_state.move_NPC()
                     main_state.Collosion()
+                    main_state.map.update()
             elif key_event == LEFT_DOWN:
                 self.position -= 1
                 if self.position == -1:
@@ -104,8 +105,10 @@ class Hero:
                     self.walk_mode = 1
                     main_state.move_NPC()
                     main_state.Collosion()
+                    main_state.map.update()
             elif key_event == UP_DOWN:
                 self.walk_mode = 1
                 main_state.move_NPC()
                 main_state.Collosion()
+                main_state.map.update()
             self.add_event(key_event)

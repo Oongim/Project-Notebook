@@ -5,13 +5,9 @@ import title_state
 
 from Hero import Hero
 from NPC import NPC
+from Map import Map
 
 
-class Map:
-    def __init__(self):
-        self.image=load_image('Resource\mapUP.png')
-    def draw(self):
-        self.image.clip_draw(0, 0, 800, 600, 400, 300)
 def make_NPCblank_Init():
     rand_num = 2
     npc[0][rand_num].direct = 5
