@@ -8,17 +8,18 @@ image = None
 
 
 def enter():
-    global image,hero,frame
+    global image,hero,frame,name,press
     frame=0
     image = load_image('Resource\\title.png')
     hero=load_image('Resource\hero\\main.png')
-
-
+    name=load_image('Resource\\HakSick.png')
+    press=load_image('Resource\\Press.png')
 def exit():
-    global image,hero
+    global image,hero,name,press
     del(image)
     del(hero)
-
+    del(name)
+    del(press)
 
 def handle_events():
    events=get_events()
@@ -28,12 +29,15 @@ def handle_events():
        else:
            if(event.type, event.key)==(SDL_KEYDOWN, SDLK_ESCAPE):
                game_framework.quit()
-           elif(event.type, event.key)==(SDL_KEYDOWN, SDLK_SPACE):
+           elif(event.type)==(SDL_KEYDOWN):
                game_framework.change_state(main_state)
 
 def draw():
     clear_canvas()
     image.clip_draw(0, 0, 800, 600, 400, 300)
+    name.clip_draw(0, 0, 380, 220, 400, 600-110)
+    if(frame%4<2):
+        press.clip_draw(0, 0, 284, 67, 400, 50)
     if(frame<5):
         hero.clip_draw(frame* 144, 0, 144, 300, 220, 220)
     else:
