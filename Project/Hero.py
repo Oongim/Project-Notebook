@@ -1,7 +1,7 @@
 from pico2d import *
 import main_state
 import game_framework
-import title_state
+import death_state
 
 import random
 
@@ -40,7 +40,6 @@ class RunState:
             else:
                 Hero.walk_mode = 1
                 main_state.move_NPC()
-                Hero.Collosion()
                 main_state.map.update()
         elif event == LEFT_DOWN:
             Hero.position -= 1
@@ -49,22 +48,23 @@ class RunState:
             else:
                 Hero.walk_mode = 1
                 main_state.move_NPC()
-                Hero.Collosion()
                 main_state.map.update()
         elif event == UP_DOWN:
             Hero.walk_mode = 1
             main_state.move_NPC()
-            Hero.Collosion()
             main_state.map.update()
 
     @staticmethod
     def exit(Hero, event):
-        pass
+        Hero.frame = 0
 
     @staticmethod
     def do(Hero):
         Hero.frame = Hero.frame + 1
         Hero.x = 100 * Hero.position + 250
+        if Hero.Collosion()==1:
+            Hero.frame = 0
+            Hero.add_event(DEATH)
         if (Hero.frame == 6):
             Hero.add_event(IDLE)
 
@@ -90,26 +90,29 @@ class RunState:
 class DeathState:
     @staticmethod
     def enter(hero,event):
-        hero.frame = 0
+        pass
 
     @staticmethod
     def exit(hero,event):
-            game_framework.change_state(title_state)
+       pass
 
     @staticmethod
     def do(hero):
-        hero.frame = (hero.frame + 1) % 20
-        if (hero.frame == 6):
-            if (main_state.end):
-                hero.update()
+        hero.frame = (hero.frame + 1)
+        if (hero.frame == 19):
+            game_framework.change_state(death_state)
+
     @staticmethod
     def draw(hero):
-        hero.death[hero.frame].draw_now(400, 300)
+        hero.bounce[hero.frame].draw_now(400, 300)
 
 next_state_table = {
-    IdleState: {UP_DOWN: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState}
+    IdleState: {UP_DOWN: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState,DEATH: DeathState,
+                DEATH: DeathState}
     ,RunState: {DEATH: DeathState,IDLE:IdleState,
-                UP_DOWN: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState}
+                UP_DOWN: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState},
+    DeathState:{ UP_DOWN: DeathState, RIGHT_DOWN: DeathState, LEFT_DOWN: DeathState,
+                 DEATH: DeathState}
         }
 class Hero:
     def __init__(self ):
@@ -123,6 +126,11 @@ class Hero:
         self.walk_mode=0   #0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
+        self.bounce=[load_image('Resource\hero\Collosion\\1.png'),
+                     load_image('Resource\hero\Collosion\\2.png'),
+                     load_image('Resource\hero\Collosion\\3.png'),
+                     load_image('Resource\hero\Collosion\\4.png')]
+
         self.death=[load_image('Resource\hero\Death\\1.png'),
         load_image('Resource\hero\Death\\2.png'),
          load_image('Resource\hero\Death\\3.png'),
