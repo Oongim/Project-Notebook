@@ -114,12 +114,7 @@ def move_NPC():
     elif (npc[4][3].direct==5):
         make_NPC_New(3)
 
-def Collosion():
-    global end
-    for i in range(0, 4):
-        if 5==npc[0][i].direct:
-            if(hero.position!=i):
-                end=True
+
 
 
 def enter():
@@ -157,8 +152,7 @@ def handle_events():
 def update():
     hero.update()
 
-    if(end):
-        game_framework.change_state(title_state)
+
 def draw():
     clear_canvas()
     #################################
