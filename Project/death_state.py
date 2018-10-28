@@ -3,7 +3,8 @@ import title_state
 from pico2d import *
 
 def enter():
-    global image,death,frame
+    global death,frame,back
+    back=load_image('Resource\hero\Death\\death.png')
     death = [load_image('Resource\hero\Death\\1.png'),
                   load_image('Resource\hero\Death\\2.png'),
                   load_image('Resource\hero\Death\\3.png'),
@@ -27,18 +28,22 @@ def enter():
     frame=0
 
 def exit():
-    global death
+    global death,back
     del (death)
+    del(back)
 
 def update():
     global frame
-    frame = (frame + 1)
-    if (frame == 19):
-         game_framework.change_state(title_state)
+    if (frame < 19):
+        frame = (frame + 1)
+
+
 
 def draw():
     clear_canvas()
+    back.draw_now(400, 300)
     death[frame].draw_now(400, 300)
+
     update_canvas()
     delay(0.1)
 
