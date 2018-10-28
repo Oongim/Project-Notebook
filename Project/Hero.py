@@ -99,7 +99,7 @@ class DeathState:
     @staticmethod
     def do(hero):
         hero.frame = (hero.frame + 1)
-        if (hero.frame == 19):
+        if (hero.frame == 4):
             game_framework.change_state(death_state)
 
     @staticmethod
@@ -131,26 +131,7 @@ class Hero:
                      load_image('Resource\hero\Collosion\\3.png'),
                      load_image('Resource\hero\Collosion\\4.png')]
 
-        self.death=[load_image('Resource\hero\Death\\1.png'),
-        load_image('Resource\hero\Death\\2.png'),
-         load_image('Resource\hero\Death\\3.png'),
-       load_image('Resource\hero\Death\\4.png'),
-         load_image('Resource\hero\Death\\5.png'),
-         load_image('Resource\hero\Death\\6.png'),
-         load_image('Resource\hero\Death\\7.png'),
-        load_image('Resource\hero\Death\\8.png'),
-         load_image('Resource\hero\Death\\9.png'),
-        load_image('Resource\hero\Death\\10.png'),
-         load_image('Resource\hero\Death\\11.png'),
-        load_image('Resource\hero\Death\\12.png'),
-         load_image('Resource\hero\Death\\13.png'),
-         load_image('Resource\hero\Death\\14.png'),
-         load_image('Resource\hero\Death\\15.png'),
-         load_image('Resource\hero\Death\\16.png'),
-        load_image('Resource\hero\Death\\17.png'),
-         load_image('Resource\hero\Death\\18.png'),
-        load_image('Resource\hero\Death\\19.png'),
-       load_image('Resource\hero\Death\\20.png')]
+
 
     def add_event(self, event):
          self.event_que.insert(0, event)
