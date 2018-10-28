@@ -99,12 +99,14 @@ class DeathState:
     @staticmethod
     def do(hero):
         hero.frame = (hero.frame + 1)
+        hero.x+=10
+        delay(0.1)
         if (hero.frame == 4):
             game_framework.change_state(death_state)
 
     @staticmethod
     def draw(hero):
-        hero.bounce[hero.frame].draw_now(400, 300)
+        hero.bounce[hero.frame].clip_draw(0, 0, 81, 200, hero.x, hero.y)
 
 next_state_table = {
     IdleState: {UP_DOWN: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState,DEATH: DeathState,
