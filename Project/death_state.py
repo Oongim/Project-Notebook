@@ -1,9 +1,11 @@
 import game_framework
 import title_state
+import main_state
 from pico2d import *
 
 def enter():
-    global death,frame,back
+    global death,frame,back,font
+    font = load_font('서울남산 장체B.ttf', 16)
     back=load_image('Resource\hero\Death\\death.png')
     death = [load_image('Resource\hero\Death\\1.png'),
                   load_image('Resource\hero\Death\\2.png'),
@@ -28,9 +30,10 @@ def enter():
     frame=0
 
 def exit():
-    global death,back
+    global death,back,font
     del (death)
     del(back)
+    del(font)
 
 def update():
     global frame
@@ -43,6 +46,7 @@ def draw():
     clear_canvas()
     back.draw_now(400, 300)
     death[frame].draw_now(400, 300)
+    font.draw(360 , 230, '제친 횟수:%d' % (main_state.cnt.count),(255, 255, 0))
 
     update_canvas()
     delay(0.1)

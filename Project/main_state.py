@@ -126,9 +126,9 @@ def make_NPC_New(rand_num):
     elif rand_num == 3:
         rand_num = random.randint(2, 3)
         npc[5][rand_num].direct = 5  # Blank Position
-
-    if ((cnt.count - 50) % 5==0):
-        choice_Change_NPC(rand_num)
+    if(cnt.count>=25):
+        if ((cnt.count ) % 5==0):
+            choice_Change_NPC(rand_num)
 
 
 

@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aa2725e-72b8-40ae-b348-efa21b63c6f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENCR10B.TTF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/NPC.py" beforeDir="false" afterPath="$PROJECT_DIR$/NPC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/Count/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/Count/9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resource/mapUP.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/mapUP.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/death_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/death_state.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_state.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,13 +59,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="6316" />
+          <entry key="py" value="6438" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="6316" />
+          <entry key="Python" value="6438" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -105,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/death_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="311">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -145,13 +135,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="129" column="4" lean-forward="true" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="4" />
+            <state relative-caret-position="-1779">
+              <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <element signature="e#3214#4027#0" />
-                <marker date="1541003433588" expanded="true" signature="2107:2108" ph="..." />
-                <marker date="1541003433588" expanded="true" signature="2985:3806" ph="..." />
+                <marker date="1541004290183" expanded="true" signature="2107:2108" ph="..." />
+                <marker date="1541004290183" expanded="true" signature="2985:3806" ph="..." />
               </folding>
             </state>
           </provider>
@@ -169,14 +159,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NPC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+            <state relative-caret-position="133">
+              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1541003994079" expanded="true" signature="1340:1349" ph="..." />
+                <marker date="1541004745605" expanded="true" signature="1291:1300" ph="..." />
               </folding>
             </state>
           </provider>
@@ -198,8 +188,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game_framework.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1007">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="-418">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -241,16 +231,16 @@
         <option value="$PROJECT_DIR$/title_state.py" />
         <option value="$PROJECT_DIR$/Map.py" />
         <option value="$PROJECT_DIR$/Death_state.py" />
-        <option value="$PROJECT_DIR$/death_state.py" />
         <option value="$PROJECT_DIR$/Hero.py" />
         <option value="$PROJECT_DIR$/main_state.py" />
         <option value="$PROJECT_DIR$/NPC.py" />
+        <option value="$PROJECT_DIR$/death_state.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="348" />
-    <option name="y" value="30" />
+    <option name="x" value="361" />
+    <option name="y" value="75" />
     <option name="width" value="1525" />
     <option name="height" value="963" />
   </component>
@@ -362,7 +352,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="279" y="24" width="1220" height="770" extended-state="0" />
+    <frame x="289" y="60" width="1220" height="770" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20456466" />
@@ -426,16 +416,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/death_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/title_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -468,42 +448,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_framework.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Map.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/start_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="51" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="129" column="4" lean-forward="true" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#3214#4027#0" />
-            <marker date="1541003433588" expanded="true" signature="2107:2108" ph="..." />
-            <marker date="1541003433588" expanded="true" signature="2985:3806" ph="..." />
           </folding>
         </state>
       </provider>
@@ -517,11 +467,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NPC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+        <state relative-caret-position="133">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1541003994079" expanded="true" signature="1340:1349" ph="..." />
+            <marker date="1541004745605" expanded="true" signature="1291:1300" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1779">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#3214#4027#0" />
+            <marker date="1541004290183" expanded="true" signature="2107:2108" ph="..." />
+            <marker date="1541004290183" expanded="true" signature="2985:3806" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_framework.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Map.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/death_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>

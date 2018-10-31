@@ -6,7 +6,6 @@ class NPC:
     def __init__(self):
         self.x,self.y=0,0
         self.direct=0 #0=up 1= down 2= left 3= right
-        self.font = load_font('ENCR10B.TTF', 16)
         self.form=random.randint(0, 8)
         if( self.form==0):
             self.image=load_image('Resource\\NPC\Girl1.png')
