@@ -32,27 +32,27 @@ class Count:
         posx=self.x
         while(count!=0):
             if (count % 10 == 0):
-                self.zero.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.zero.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 1):
-                self.one.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.one.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 2):
-                self.two.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.two.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 3):
-                self.three.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.three.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 4):
-                self.four.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.four.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 5):
-                self.five.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.five.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 6):
-                self.six.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.six.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 7):
-                self.seven.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.seven.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 8):
-                self.eight.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.eight.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             elif (count % 10 == 9):
-                self.nine.clip_draw(0, 0, 13, 30, posx, self.y)
+                self.nine.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             count=count//10;
-            posx-=13
+            posx-=10
 def make_NPCblank_Init():
     rand_num = 2
     npc[0][rand_num].direct = 5
@@ -75,15 +75,45 @@ def make_NPCblank_Init():
         for j in range(0,4):
             npc[i][j].x=100*j+250
             npc[i][j].y=100*i+100
+
+
 def draw_NPC():
     for i in range(5,-1,-1):
         for j in range(0,4):
             npc[i][j].draw()
 
+
+def choice_Change_NPC(rand_num):
+    if rand_num == 0:
+        rand_num = 1
+        npc[5][rand_num].direct = 6
+        npc[5][rand_num].x -= 100
+    elif rand_num == 1:
+        rand_num = random.randint(0, 2)
+        if npc[5][rand_num].direct != 5:
+            npc[5][rand_num].direct = 6  # Change
+            if rand_num==0:
+                npc[5][rand_num].x+=100
+            elif rand_num==2:
+                npc[5][rand_num].x -= 100
+    elif rand_num == 2:
+        rand_num = random.randint(1, 3)
+        if npc[5][rand_num].direct != 5:
+            npc[5][rand_num].direct = 6  # Change
+            if rand_num==1:
+                npc[5][rand_num].x+=100
+            elif rand_num==3:
+                npc[5][rand_num].x -= 100
+    elif rand_num == 3:
+        rand_num = 2
+        npc[5][rand_num].direct = 6
+        npc[5][rand_num].x += 100
+
+
 def make_NPC_New(rand_num):
     for i in range(0, 4):
         npc[5][i].form = random.randint(0, 8)
-        npc[5][i].direct=0
+        npc[5][i].direct = 0
     if rand_num == 0:
         rand_num = random.randint(0, 1)
         npc[5][rand_num].direct = 5  # Blank Position
@@ -96,6 +126,12 @@ def make_NPC_New(rand_num):
     elif rand_num == 3:
         rand_num = random.randint(2, 3)
         npc[5][rand_num].direct = 5  # Blank Position
+
+    if ((cnt.count - 50) % 5==0):
+        choice_Change_NPC(rand_num)
+
+
+
 def move_NPC():
     cnt.update()
     for i in range(5,-1,-1):  #move NPC y Position
@@ -103,6 +139,11 @@ def move_NPC():
             npc[i][j].y-=100
             if npc[i][j].y==0:
                 npc[i][j].y=600
+            if (npc[i][j].direct == 6):
+                if (npc[i][j - 1].direct == 5):
+                    npc[i][j].change(j, j - 1, i)
+                elif (npc[i][j + 1].direct == 5):
+                    npc[i][j].change(j, j + 1, i)
     for i in range(1,6):      #move NPC list position
         npc[i-1], npc[i]=npc[i],npc[i-1]
     if (npc[4][0].direct==5):
