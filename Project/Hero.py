@@ -23,11 +23,11 @@ class IdleState:
 
     @staticmethod
     def do(Hero):
-        Hero.frame = (Hero.frame + 1) % 6
+        Hero.frame = (Hero.frame + 1) % 11
 
     @staticmethod
     def draw(Hero):
-        Hero.idle.clip_draw(Hero.frame * 64, 0, 64, 200, Hero.x, Hero.y)
+        Hero.idle.clip_draw((Hero.frame//2) * 64, 0, 64, 200, Hero.x, Hero.y)
 
 class RunState:
     @staticmethod

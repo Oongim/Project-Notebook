@@ -55,7 +55,8 @@ def update():
 
     text_cnt=(text_cnt+1)
     if(text_cnt>=len(text[text_sequence])+1):
-        if(image_sequence==2):
+        if(text_sequence==4):
+            delay(2)
             game_framework.change_state(main_state)
         text_sequence+=1
         text_cnt=0
