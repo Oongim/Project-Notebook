@@ -11,12 +11,13 @@ def enter():
     global image,textbox,text,font,text_cnt,text_sequence,image_sequence,fonts
     image = [load_image('Resource\opening\clock.png'),
              load_image('Resource\opening\People1.png'),
-             load_image('Resource\opening\People2.png')]
+             load_image('Resource\opening\opening3.png')]
     textbox=load_image('Resource\\UI\\textbox.png')
     text=['현재 시각 11:30분 ',
           '유일하게 밥을 먹을 수 있는 공강시간',
-          '사람이 가장 많은 시간이다.',
-          '다음 수업 시간에 늦으면 'F', 절대 늦으면 안된다.'
+          '사람이 가장 많은 시간이지만 오늘은 유난히 많은 것 같다.',
+          '다음 수업 시간에 늦으면 "F", 절대 늦으면 안된다.',
+          '사람들 빈 곳으로 200명만 추월 한다면 가능 할 것 같다. '
           ]
     font = load_font('서울남산 장체B.ttf', 30)
     fonts = load_font('서울남산 장체B.ttf', 20)
@@ -42,8 +43,7 @@ def handle_events():
 
 def draw():
     clear_canvas()
-    image[image_sequence].clip_draw(0, 0, 800, 550, 400, 370)
-    #image[1].clip_draw(0, 0, 800, 550, 400, 400)
+    image[image_sequence].clip_draw(0, 0, 800, 500, 400, 350)
     textbox.clip_draw(0, 0, 800, 600, 400, 300)
     font.draw(50, 90, text[text_sequence][:text_cnt], (255, 255, 0))
     fonts.draw(680, 20, 'skip "space"', (100, 100, 100))
@@ -55,11 +55,15 @@ def update():
 
     text_cnt=(text_cnt+1)
     if(text_cnt>=len(text[text_sequence])+1):
+        if(image_sequence==2):
+            game_framework.change_state(main_state)
         text_sequence+=1
         text_cnt=0
         delay(1)
         if(text_sequence==2):
             image_sequence+=1
+        if (text_sequence == 3):
+            image_sequence += 1
 def pause():
     pass
 

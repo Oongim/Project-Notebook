@@ -56,7 +56,6 @@ def update():
     frame=(frame+1)%10
 
 
-
 def pause():
     pass
 

@@ -46,7 +46,7 @@ def draw():
     clear_canvas()
     back.draw_now(400, 300)
     death[frame].draw_now(400, 300)
-    font.draw(360 , 230, '제친 횟수:%d' % (main_state.cnt.count),(255, 255, 0))
+    font.draw(360 , 230, '이동 횟수:%d' % (main_state.cnt.count),(255, 255, 0))
 
     update_canvas()
     delay(0.1)
