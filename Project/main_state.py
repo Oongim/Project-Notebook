@@ -57,7 +57,7 @@ def make_NPCblank_Init():
     rand_num = 2
     npc[0][rand_num].direct = 5
 
-    for i in range(1, 6):
+    for i in range(1, 7):
         if rand_num == 0:
             rand_num = random.randint(0, 1)
             npc[i][rand_num].direct = 5  # Blank Position
@@ -71,14 +71,14 @@ def make_NPCblank_Init():
             rand_num = random.randint(2, 3)
             npc[i][rand_num].direct = 5  # Blank Position
 
-    for i in range(5,-1,-1):
+    for i in range(6,-1,-1):
         for j in range(0,4):
             npc[i][j].x=100*j+250
             npc[i][j].y=100*i+100
 
 
 def draw_NPC():
-    for i in range(5,-1,-1):
+    for i in range(6,-1,-1):
         for j in range(0,4):
             npc[i][j].draw()
 
@@ -86,46 +86,46 @@ def draw_NPC():
 def choice_Change_NPC(rand_num):
     if rand_num == 0:
         rand_num = 1
-        npc[5][rand_num].direct = 6
-        npc[5][rand_num].x -= 100
+        npc[6][rand_num].direct = 6
+        npc[6][rand_num].x -= 100
     elif rand_num == 1:
         rand_num = random.randint(0, 2)
-        if npc[5][rand_num].direct != 5:
-            npc[5][rand_num].direct = 6  # Change
+        if npc[6][rand_num].direct != 5:
+            npc[6][rand_num].direct = 6  # Change
             if rand_num==0:
-                npc[5][rand_num].x+=100
+                npc[6][rand_num].x+=100
             elif rand_num==2:
-                npc[5][rand_num].x -= 100
+                npc[6][rand_num].x -= 100
     elif rand_num == 2:
         rand_num = random.randint(1, 3)
-        if npc[5][rand_num].direct != 5:
-            npc[5][rand_num].direct = 6  # Change
+        if npc[6][rand_num].direct != 5:
+            npc[6][rand_num].direct = 6  # Change
             if rand_num==1:
-                npc[5][rand_num].x+=100
+                npc[6][rand_num].x+=100
             elif rand_num==3:
-                npc[5][rand_num].x -= 100
+                npc[6][rand_num].x -= 100
     elif rand_num == 3:
         rand_num = 2
-        npc[5][rand_num].direct = 6
-        npc[5][rand_num].x += 100
+        npc[6][rand_num].direct = 6
+        npc[6][rand_num].x += 100
 
 
 def make_NPC_New(rand_num):
     for i in range(0, 4):
-        npc[5][i].form = random.randint(0, 8)
-        npc[5][i].direct = 0
+        npc[6][i].form = random.randint(0, 8)
+        npc[6][i].direct = 0
     if rand_num == 0:
         rand_num = random.randint(0, 1)
-        npc[5][rand_num].direct = 5  # Blank Position
+        npc[6][rand_num].direct = 5  # Blank Position
     elif rand_num == 1:
         rand_num = random.randint(0, 2)
-        npc[5][rand_num].direct = 5  # Blank
+        npc[6][rand_num].direct = 5  # Blank
     elif rand_num == 2:
         rand_num = random.randint(1, 3)
-        npc[5][rand_num].direct = 5  # Blank Position
+        npc[6][rand_num].direct = 5  # Blank Position
     elif rand_num == 3:
         rand_num = random.randint(2, 3)
-        npc[5][rand_num].direct = 5  # Blank Position
+        npc[6][rand_num].direct = 5  # Blank Position
     if(cnt.count>=25):
         if ((cnt.count ) % 5==0):
             choice_Change_NPC(rand_num)
@@ -134,25 +134,25 @@ def make_NPC_New(rand_num):
 
 def move_NPC():
     cnt.update()
-    for i in range(5,-1,-1):  #move NPC y Position
+    for i in range(6,-1,-1):  #move NPC y Position
         for j in range(0,4):
             npc[i][j].y-=100
-            if npc[i][j].y==0:
+            if npc[i][j].y==-100:
                 npc[i][j].y=600
             if (npc[i][j].direct == 6):
                 if (npc[i][j - 1].direct == 5):
                     npc[i][j].change(j, j - 1, i)
                 elif (npc[i][j + 1].direct == 5):
                     npc[i][j].change(j, j + 1, i)
-    for i in range(1,6):      #move NPC list position
+    for i in range(1,7):      #move NPC list position
         npc[i-1], npc[i]=npc[i],npc[i-1]
-    if (npc[4][0].direct==5):
+    if (npc[5][0].direct==5):
         make_NPC_New(0)
-    elif (npc[4][1].direct==5):
+    elif (npc[5][1].direct==5):
         make_NPC_New(1)
-    elif (npc[4][2].direct==5):
+    elif (npc[5][2].direct==5):
         make_NPC_New(2)
-    elif (npc[4][3].direct==5):
+    elif (npc[5][3].direct==5):
         make_NPC_New(3)
 
 
@@ -164,7 +164,7 @@ def enter():
     cnt=Count()
     end=False
     hero = Hero()
-    npc = [[NPC() for i in range(4)] for i in range(6)]
+    npc = [[NPC() for i in range(4)] for i in range(7)]
     make_NPCblank_Init()  # 빈칸 생성
 
 def exit():

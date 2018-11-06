@@ -33,13 +33,14 @@ class NPC:
             self.image.clip_draw(self.direct*64,0,64,200,self.x,self.y)
 
     def change(self,curr,blank,pos):
-        if(pos>2):
-            if(curr<blank):
-                self.x-=30
-            elif(curr>blank):
-                self.x+=30
-        elif pos==2:
-            if (curr < blank):
-                self.x -= 10
-            elif (curr > blank):
-                self.x += 10
+        if pos<6:
+            if(pos>2):
+                if(curr<blank):
+                    self.x-=30
+                elif(curr>blank):
+                    self.x+=30
+            elif pos==2:
+                if (curr < blank):
+                    self.x -= 10
+                elif (curr > blank):
+                    self.x += 10
