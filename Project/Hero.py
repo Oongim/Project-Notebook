@@ -29,6 +29,16 @@ class IdleState:
     def draw(Hero):
         Hero.idle.clip_draw((Hero.frame//2) * 64, 0, 64, 200, Hero.x, Hero.y)
 
+PIXEL_PER_METER = (10.0/0.2)
+RUN_SPEED_KMPH = 33.0
+RUN_SPEED_MPM = (RUN_SPEED_KMPH*1000.0/60.0)
+RUN_SPEED_MPS = (RUN_SPEED_MPM/60.0)
+RUN_SPEED_PPS = (RUN_SPEED_MPS*PIXEL_PER_METER)
+
+TIME_PER_ACTION = 0.3
+ACTION_PER_TIME = 1.0/TIME_PER_ACTION
+FRAMES_PER_ACTION = 6
+TIME_PER_MOVE=100
 class RunState:
     @staticmethod
     def enter(Hero, event):
@@ -36,20 +46,25 @@ class RunState:
         if event == RIGHT_DOWN:
             Hero.position += 1
             if Hero.position == 4:
+                Hero.velocity = 0
                 Hero.position = 3
             else:
+                Hero.velocity=1
                 Hero.walk_mode = 1
                 main_state.move_NPC()
                 main_state.map.update()
         elif event == LEFT_DOWN:
             Hero.position -= 1
             if Hero.position == -1:
+                Hero.velocity = 0
                 Hero.position = 0
             else:
+                Hero.velocity = -1
                 Hero.walk_mode = 1
                 main_state.move_NPC()
                 main_state.map.update()
         elif event == UP_DOWN:
+            Hero.velocity = 0
             Hero.walk_mode = 1
             main_state.move_NPC()
             main_state.map.update()
@@ -57,11 +72,14 @@ class RunState:
     @staticmethod
     def exit(Hero, event):
         Hero.frame = 0
+        Hero.x=100*Hero.position+250
 
     @staticmethod
     def do(Hero):
-        Hero.frame = Hero.frame + 1
-        Hero.x = 100 * Hero.position + 250
+        Hero.frame = int((Hero.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time))% 7
+        print(Hero.frame)
+
+        Hero.x += Hero.velocity*RUN_SPEED_PPS*game_framework.frame_time
         if Hero.Collosion()==1:
             Hero.frame = 0
             Hero.add_event(DEATH)
@@ -124,7 +142,7 @@ class Hero:
         self.position = 2
         self.x,self.y=100 * self.position + 250,100
         self.frame=0
-
+        self.velocity=0
         self.walk_mode=0   #0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
