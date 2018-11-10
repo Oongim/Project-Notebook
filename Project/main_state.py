@@ -12,16 +12,16 @@ class Count:
         self.x=730
         self.y=560
         self.count=0
-        self.zero=load_image('Resource\Count\\0.png')
-        self.one = load_image('Resource\Count\\1.png')
-        self.two = load_image('Resource\Count\\2.png')
-        self.three = load_image('Resource\Count\\3.png')
-        self.four = load_image('Resource\Count\\4.png')
-        self.five = load_image('Resource\Count\\5.png')
-        self.six = load_image('Resource\Count\\6.png')
-        self.seven = load_image('Resource\Count\\7.png')
-        self.eight = load_image('Resource\Count\\8.png')
-        self.nine = load_image('Resource\Count\\9.png')
+        self.number=[load_image('Resource\Count\\0.png'),
+                     load_image('Resource\Count\\1.png'),
+                     load_image('Resource\Count\\2.png'),
+                     load_image('Resource\Count\\3.png'),
+                     load_image('Resource\Count\\4.png'),
+                     load_image('Resource\Count\\5.png'),
+                     load_image('Resource\Count\\6.png'),
+                     load_image('Resource\Count\\7.png'),
+                     load_image('Resource\Count\\8.png'),
+                     load_image('Resource\Count\\9.png')]
     def update(self):
         self.y -= 100
         self.count+=1
@@ -31,26 +31,7 @@ class Count:
         count=self.count
         posx=self.x
         while(count!=0):
-            if (count % 10 == 0):
-                self.zero.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 1):
-                self.one.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 2):
-                self.two.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 3):
-                self.three.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 4):
-                self.four.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 5):
-                self.five.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 6):
-                self.six.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 7):
-                self.seven.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 8):
-                self.eight.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
-            elif (count % 10 == 9):
-                self.nine.clip_draw(0, 0, 13, 30, posx, self.y,10,24)
+            self.number[count % 10].clip_draw(0, 0, 13, 30, posx, self.y,10,24)
             count=count//10;
             posx-=10
 def make_NPCblank_Init():
