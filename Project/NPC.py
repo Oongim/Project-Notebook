@@ -1,46 +1,51 @@
 from pico2d import *
 import random
 
+UP_DIRECTION,DOWN_DIRECTION,LEFT_DIRECTION,RIGHT_DIRECTION,EMPTY,CHANGE_NPC =range(6)
+
 class NPC:
+    sprite=[None for i in range(9)]
 
     def __init__(self):
         self.x,self.y=0,0
-        self.direct=0 #0=up 1= down 2= left 3= right
-        self.form=random.randint(0, 8)
-        if( self.form==0):
-            self.image=load_image('Resource\\NPC\Girl1.png')
-        elif ( self.form== 1):
-            self.image = load_image('Resource\\NPC\Girl2.png')
-        elif ( self.form == 2):
-            self.image = load_image('Resource\\NPC\Girl3.png')
-        elif ( self.form == 3):
-            self.image = load_image('Resource\\NPC\Girl4.png')
-        elif ( self.form == 4):
-            self.image = load_image('Resource\\NPC\Girl5.png')
-        elif ( self.form == 5):
-            self.image = load_image('Resource\\NPC\Man1.png')
-        elif ( self.form == 6):
-            self.image = load_image('Resource\\NPC\Man2.png')
-        elif ( self.form == 7):
-            self.image = load_image('Resource\\NPC\Man3.png')
-        elif ( self.form == 8):
-            self.image = load_image('Resource\\NPC\Man4.png')
+        self.state=UP_DIRECTION
+        self.form=random.randint(0, len(NPC.sprite)-1)
+        if (NPC.sprite[self.form] == None):
+            if (self.form == 0):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Girl1.png')
+            elif (self.form == 1):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Girl2.png')
+            elif (self.form == 2):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Girl3.png')
+            elif (self.form == 3):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Girl4.png')
+            elif (self.form == 4):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Girl5.png')
+            elif (self.form == 5):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Man1.png')
+            elif (self.form == 6):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Man2.png')
+            elif (self.form == 7):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Man3.png')
+            elif (self.form == 8):
+                NPC.sprite[self.form] = load_image('Resource\\NPC\Man4.png')
+        self.image = NPC.sprite[self.form]
 
     def draw(self):
-        if (self.direct == 6):
-            self.image.clip_draw(0, 0, 64, 200, self.x, self.y)
-        elif (self.direct != 5):
-            self.image.clip_draw(self.direct*64,0,64,200,self.x,self.y)
+        if (self.state == CHANGE_NPC):
+            self.image.clip_draw(0,0,64,200,self.x,self.y)
+        elif (self.state != EMPTY):
+            self.image.clip_draw(self.state*64,0,64,200,self.x,self.y)
 
-    def change(self,curr,blank,pos):
-        if pos<6:
-            if(pos>2):
-                if(curr<blank):
+    def change(self,current_pos,empty,row_pos):
+        if row_pos<6:
+            if(row_pos>2):
+                if(current_pos<empty):
                     self.x-=30
-                elif(curr>blank):
+                elif(current_pos>empty):
                     self.x+=30
-            elif pos==2:
-                if (curr < blank):
+            elif row_pos==2:
+                if (current_pos < empty):
                     self.x -= 10
-                elif (curr > blank):
+                elif (current_pos > empty):
                     self.x += 10

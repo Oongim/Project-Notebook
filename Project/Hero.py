@@ -77,7 +77,7 @@ class RunState:
     @staticmethod
     def do(Hero):
         Hero.frame = int((Hero.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time))% 7
-        print(Hero.frame)
+        #print(Hero.frame)
 
         Hero.x += Hero.velocity*RUN_SPEED_PPS*game_framework.frame_time
         if Hero.Collosion()==1:
@@ -174,6 +174,6 @@ class Hero:
 
     def Collosion(self):
         for i in range(0, 4):
-            if 5 == main_state.npc[0][i].direct:
+            if 5 == main_state.npc[0][i].state:
                 if (self.position != i):
                     return True
