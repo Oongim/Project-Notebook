@@ -6,6 +6,8 @@ import death_state
 import random
 
 RIGHT_DOWN,LEFT_DOWN,UP_DOWN,DEATH,IDLE =range(5)
+#0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
+UP_DIRECTION,LEFT_DIRECTION,RIGHT_DIRECTION=range(3)
 key_event_table = {
     (SDL_KEYDOWN, SDLK_RIGHT): RIGHT_DOWN,
     (SDL_KEYDOWN, SDLK_LEFT): LEFT_DOWN,
@@ -44,30 +46,13 @@ class RunState:
     def enter(Hero, event):
         Hero.frame = 0
         if event == RIGHT_DOWN:
-            Hero.position += 1
-            if Hero.position == 4:
-                Hero.velocity = 0
-                Hero.position = 3
-            else:
-                Hero.velocity=1
-                Hero.walk_mode = 1
-                main_state.move_NPC()
-                main_state.map.update()
+            Hero.position =  min(3,Hero.position+1)
+            Hero.velocity=1
         elif event == LEFT_DOWN:
-            Hero.position -= 1
-            if Hero.position == -1:
-                Hero.velocity = 0
-                Hero.position = 0
-            else:
-                Hero.velocity = -1
-                Hero.walk_mode = 1
-                main_state.move_NPC()
-                main_state.map.update()
+            Hero.position =  max(0,Hero.position-1)
+            Hero.velocity = -1
         elif event == UP_DOWN:
             Hero.velocity = 0
-            Hero.walk_mode = 1
-            main_state.move_NPC()
-            main_state.map.update()
 
     @staticmethod
     def exit(Hero, event):
@@ -80,30 +65,18 @@ class RunState:
         #print(Hero.frame)
 
         Hero.x += Hero.velocity*RUN_SPEED_PPS*game_framework.frame_time
+        main_state.move_NPC(Hero.velocity*RUN_SPEED_PPS*game_framework.frame_time)
+        main_state.map.update(Hero.velocity*RUN_SPEED_PPS*game_framework.frame_time)
         if Hero.Collosion()==1:
             Hero.frame = 0
             Hero.add_event(DEATH)
         if (Hero.frame == 6):
             Hero.add_event(IDLE)
-
+    sprite_position=[[66,1250],[66,1460],[84,640],[102,840],[86,1040],[84,0],[102,220],[86,420]]
     @staticmethod
     def draw(hero):
-        if (hero.walk_mode == 1):
-            hero.move.clip_draw(hero.frame*66,1250,66,200,hero.x,hero.y)
-        elif (hero.walk_mode == 2):
-            hero.move.clip_draw(hero.frame * 66, 1460, 66, 200, hero.x, hero.y)
-        elif (hero.walk_mode == 3):
-            hero.move.clip_draw(hero.frame * 84, 640, 84, 200, hero.x, hero.y)
-        elif (hero.walk_mode == 4):
-            hero.move.clip_draw(hero.frame *102, 840, 102, 200, hero.x, hero.y)
-        elif (hero.walk_mode == 5):
-            hero.move.clip_draw(hero.frame * 86, 1040, 86, 200, hero.x, hero.y)
-        elif (hero.walk_mode == 6):
-            hero.move.clip_draw(hero.frame * 84, 0, 84, 200, hero.x, hero.y)
-        elif (hero.walk_mode == 7):
-            hero.move.clip_draw(hero.frame * 102, 220, 102, 200, hero.x, hero.y)
-        elif (hero.walk_mode == 8):
-            hero.move.clip_draw(hero.frame * 86, 420, 86, 200, hero.x, hero.y)
+            hero.move.clip_draw(hero.frame*RunState.sprite_position[hero.walk_mode][0],RunState.sprite_position[hero.walk_mode][1]
+                                ,RunState.sprite_position[hero.walk_mode][0],200,hero.x,hero.y)
 
 class DeathState:
     @staticmethod
@@ -143,7 +116,7 @@ class Hero:
         self.x,self.y=100 * self.position + 250,100
         self.frame=0
         self.velocity=0
-        self.walk_mode=0   #0=idle 1= up 2= down 3= Lup 4= Left 5= Ldown 6=Rup 7=Right 8=Rdown
+        self.walk_mode=UP_DIRECTION
         self.idle=load_image('Resource\hero\idle.png')
         self.move=load_image('Resource\hero\Walk.png')
         self.bounce=[load_image('Resource\hero\Collosion\\1.png'),
@@ -174,6 +147,6 @@ class Hero:
 
     def Collosion(self):
         for i in range(0, 4):
-            if 5 == main_state.npc[0][i].state:
+            if main_state.EMPTY == main_state.npc[0][i].state:
                 if (self.position != i):
                     return True

@@ -38,7 +38,7 @@ class NPC:
             self.image.clip_draw(self.state*64,0,64,200,self.x,self.y)
 
     def change(self,current_pos,empty,row_pos):
-        if row_pos<6:
+        if row_pos<7:
             if(row_pos>2):
                 if(current_pos<empty):
                     self.x-=30

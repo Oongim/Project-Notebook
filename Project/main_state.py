@@ -58,7 +58,8 @@ def initialize_NPC(start_position):
 def draw_NPC():
     for i in range(COLUMN_MAX-1,-1,-1):
         for j in range(0,ROW_MAX):
-            npc[i][j].draw()
+            if(npc[i][j].y!=0):
+                npc[i][j].draw()
 
 
 def choice_Change_NPC(empty_position):
@@ -88,19 +89,19 @@ def change_NPC_column():
         if (npc[COLUMN_MAX-2][i].state==EMPTY):
             make_new_NPC_row(i)
 
-def move_NPC():
+def move_NPC(move_distance):
     disappear_postion=-100
     appear_positon=600
     cnt.update()
     for i in range(0, COLUMN_MAX):  #move NPC column Position
         for j in range(0,ROW_MAX):
-            npc[i][j].y-=NPC_gap
+            npc[i][j].y-=move_distance
             if npc[i][j].y==disappear_postion:
                 npc[i][j].y=appear_positon
             if (npc[i][j].state == CHANGE_NPC):
-                if (npc[i][j - 1].state == EMPTY):
+                if (npc[i][max(0,j - 1)].state == EMPTY):
                     npc[i][j].change(j, j - 1, i)
-                elif (npc[i][j + 1].state == EMPTY):
+                elif (npc[i][min(3,j + 1)].state == EMPTY):
                     npc[i][j].change(j, j + 1, i)
     change_NPC_column()
 

@@ -4,9 +4,9 @@ class Map:
     def __init__(self):
         self.y=[300,900]
         self.image=load_image('Resource\\mapUP.png')
-    def update(self):
+    def update(self,move_distance):
         for i in range(2):
-            self.y[i] -= 100
+            self.y[i] -= move_distance
             if self.y[i]==-300:
                 self.y[i]=900
     def draw(self):
