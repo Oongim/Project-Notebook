@@ -85,9 +85,9 @@ def make_new_NPC_row(empty_position):
     next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
     npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
 
-    if(cnt.count>=25):
-        if ((cnt.count ) % 5==0):
-           choice_Change_NPC(empty_position)
+   # if(cnt.count>=25):
+       # if ((cnt.count ) % 5==0):
+        #   choice_Change_NPC(empty_position)
 
 def change_NPC_column():
 
@@ -110,11 +110,11 @@ def move_NPC(move_distance):
             npc[i][j].y=max((i-1)*100,npc[i][j].y)
             if npc[i][j].y==disappear_postion:
                 npc[i][j].y=appear_positon
-            if (npc[i][j].state == CHANGE_NPC):
-                if (npc[i][max(0,j - 1)].state == EMPTY):
-                    npc[i][j].change(j, j - 1, i)
-                elif (npc[i][min(3,j + 1)].state == EMPTY):
-                    npc[i][j].change(j, j + 1, i)
+            #if (npc[i][j].state == CHANGE_NPC):
+               # if (npc[i][max(0,j - 1)].state == EMPTY):
+                  #  npc[i][j].change(j, j - 1, i)
+              #  elif (npc[i][min(3,j + 1)].state == EMPTY):
+                 #   npc[i][j].change(j, j + 1, i)
 
 
 def enter():
