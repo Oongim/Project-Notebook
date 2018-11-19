@@ -1,7 +1,7 @@
 from pico2d import *
 import random
 import game_framework
-import title_state
+import game_world
 
 from Hero import Hero
 from NPC import NPC
@@ -42,11 +42,17 @@ ROW_MAX=4
 
 NPC_gap=100
 
+def remove_all_NPC_objectlist():
+    for i in range(0, COLUMN_MAX):  # Set NPC position
+        for j in range(0, ROW_MAX):
+            game_world.remove_object(npc[i][j])
+
 def normalize_NPC_position():
     for i in range(0, COLUMN_MAX):  # Set NPC position
         for j in range(0, ROW_MAX):
             npc[i][j].x = NPC_gap * j + 250
             npc[i][j].y = NPC_gap * i + 100
+            game_world.add_object(npc[i][j], COLUMN_MAX-i)
 def initialize_NPC(start_position):
     empty_position = start_position
 
@@ -75,7 +81,7 @@ def make_new_NPC_row(empty_position):
     for i in range(0, ROW_MAX):
         npc[COLUMN_MAX-1][i].form = random.randint(0, 8)
         npc[COLUMN_MAX-1][i].state = UP_DIRECTION
-
+        game_world.remove_object(npc[COLUMN_MAX-1][i])
     next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
     npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
 
@@ -91,7 +97,7 @@ def change_NPC_column():
         print(i)
         if (npc[COLUMN_MAX-2][i].state==EMPTY):
             make_new_NPC_row(i)
-            
+    remove_all_NPC_objectlist()
     normalize_NPC_position()
 
 def move_NPC(move_distance):
@@ -108,9 +114,6 @@ def move_NPC(move_distance):
                     npc[i][j].change(j, j - 1, i)
                 elif (npc[i][min(3,j + 1)].state == EMPTY):
                     npc[i][j].change(j, j + 1, i)
-    #change_NPC_column()
-
-
 
 
 def enter():
@@ -125,10 +128,20 @@ def enter():
     end = False
     initialize_NPC(start_positon)  # 빈칸 생성
 
+    game_world.add_object(hero,COLUMN_MAX)
+    game_world.add_object(map,0)
+    game_world.add_object(cnt, 0)
 def exit():
-    global hero, npc
+    global hero, npc,map
+    remove_all_NPC_objectlist()
+    game_world.remove_object(hero)
+    game_world.remove_object(map)
+    game_world.remove_object(cnt)
+
     del(hero)
     del(npc)
+    del(map)
+
 
 
 def pause():
@@ -155,10 +168,8 @@ def update():
 def draw():
     clear_canvas()
     #################################
-    map.draw()
-    draw_NPC()
-    hero.draw()
-    cnt.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     #################################
     update_canvas()
     delay(0.1)

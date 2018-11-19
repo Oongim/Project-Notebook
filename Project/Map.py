@@ -1,5 +1,5 @@
 from pico2d import *
-import random
+
 class Map:
     def __init__(self):
         self.y=[300,900]
