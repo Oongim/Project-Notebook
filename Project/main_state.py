@@ -22,11 +22,11 @@ class Count:
                      load_image('Resource\Count\\7.png'),
                      load_image('Resource\Count\\8.png'),
                      load_image('Resource\Count\\9.png')]
-    def update(self):
-        self.y -= 100
-        self.count+=1
-        if self.y <= 0:
-            self.y += 600
+    def update(self,y):
+        self.y = y+260
+
+    def plus_count(self):
+        self.count += 1
     def draw(self):
         count=self.count
         posx=self.x
@@ -103,10 +103,11 @@ def change_NPC_column():
 def move_NPC(move_distance):
     disappear_postion=-100
     appear_positon=600
-    cnt.update()
+
     for i in range(0, COLUMN_MAX):  #move NPC column Position
         for j in range(0,ROW_MAX):
             npc[i][j].y-=move_distance
+            npc[i][j].y=max((i-1)*100,npc[i][j].y)
             if npc[i][j].y==disappear_postion:
                 npc[i][j].y=appear_positon
             if (npc[i][j].state == CHANGE_NPC):
@@ -163,7 +164,6 @@ def handle_events():
 
 def update():
     hero.update()
-
 
 def draw():
     clear_canvas()

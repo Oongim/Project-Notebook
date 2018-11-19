@@ -60,6 +60,7 @@ class RunState:
         Hero.x=100*Hero.position+250
         main_state.change_NPC_column()
         main_state.map.normalize_position()
+        main_state.cnt.plus_count()
         if Hero.Collosion()==1:
             Hero.frame = 0
             Hero.add_event(DEATH)
@@ -70,6 +71,7 @@ class RunState:
         Hero.x += Hero.velocity*RUN_SPEED_PPS*game_framework.frame_time
         main_state.move_NPC(RUN_SPEED_PPS*game_framework.frame_time)
         main_state.map.update(RUN_SPEED_PPS*game_framework.frame_time)
+        main_state.cnt.update(main_state.map.y[0])
         if (Hero.frame == 6):
             Hero.add_event(IDLE)
     sprite_position=[[66,1250],[66,1460],[84,640],[102,840],[86,1040],[84,0],[102,220],[86,420]]
