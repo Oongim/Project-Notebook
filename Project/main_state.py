@@ -42,6 +42,11 @@ ROW_MAX=4
 
 NPC_gap=100
 
+def normalize_NPC_position():
+    for i in range(0, COLUMN_MAX):  # Set NPC position
+        for j in range(0, ROW_MAX):
+            npc[i][j].x = NPC_gap * j + 250
+            npc[i][j].y = NPC_gap * i + 100
 def initialize_NPC(start_position):
     empty_position = start_position
 
@@ -49,10 +54,7 @@ def initialize_NPC(start_position):
         npc[i][empty_position].state = EMPTY
         empty_position = random.randint(max(0, empty_position-1), min(3,empty_position+1))
 
-    for i in range(0, COLUMN_MAX):  #Set NPC position
-        for j in range(0,ROW_MAX):
-            npc[i][j].x=NPC_gap*j + 250
-            npc[i][j].y=NPC_gap*i + 100
+    normalize_NPC_position()
 
 
 def draw_NPC():
@@ -82,12 +84,15 @@ def make_new_NPC_row(empty_position):
            choice_Change_NPC(empty_position)
 
 def change_NPC_column():
+
     for i in range(1,COLUMN_MAX):      #move NPC list position column minus 1
         npc[i-1], npc[i]=npc[i],npc[i-1]
     for i in range(0,ROW_MAX):
         print(i)
         if (npc[COLUMN_MAX-2][i].state==EMPTY):
             make_new_NPC_row(i)
+            
+    normalize_NPC_position()
 
 def move_NPC(move_distance):
     disappear_postion=-100
@@ -103,7 +108,7 @@ def move_NPC(move_distance):
                     npc[i][j].change(j, j - 1, i)
                 elif (npc[i][min(3,j + 1)].state == EMPTY):
                     npc[i][j].change(j, j + 1, i)
-    change_NPC_column()
+    #change_NPC_column()
 
 
 
