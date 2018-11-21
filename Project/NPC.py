@@ -37,15 +37,8 @@ class NPC:
         elif (self.state != EMPTY):
             self.image.clip_draw(self.state*64,0,64,200,self.x,self.y)
 
-    def change(self,current_pos,empty,row_pos):
-        if row_pos<7:
-            if(row_pos>2):
-                if(current_pos<empty):
-                    self.x-=30
-                elif(current_pos>empty):
-                    self.x+=30
-            elif row_pos==2:
-                if (current_pos < empty):
-                    self.x -= 10
-                elif (current_pos > empty):
-                    self.x += 10
+    def change(self,current_pos,empty,row_pos,move_distance):
+        if (current_pos < empty):
+            self.x =max(current_pos*100+250,self.x-move_distance/4)
+        elif (current_pos > empty):
+            self.x = min( self.x + move_distance/4,current_pos * 100 + 250)

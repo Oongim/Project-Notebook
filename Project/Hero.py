@@ -46,10 +46,10 @@ class RunState:
     def enter(Hero, event):
         Hero.frame = 0
         if event == RIGHT_DOWN:
-            Hero.position =  min(3,Hero.position+1)
+            Hero.position =  min(4,Hero.position+1)
             Hero.velocity=1
         elif event == LEFT_DOWN:
-            Hero.position =  max(0,Hero.position-1)
+            Hero.position =  max(-1,Hero.position-1)
             Hero.velocity = -1
         elif event == UP_DOWN:
             Hero.velocity = 0
@@ -149,6 +149,8 @@ class Hero:
             self.add_event(key_event)
 
     def Collosion(self):
+        if(self.position == -1|self.position == 4):
+            return True
         for i in range(0, 4):
             if main_state.EMPTY == main_state.npc[0][i].state:
                 if (self.position != i):

@@ -50,7 +50,8 @@ def remove_all_NPC_objectlist():
 def normalize_NPC_position():
     for i in range(0, COLUMN_MAX):  # Set NPC position
         for j in range(0, ROW_MAX):
-            npc[i][j].x = NPC_gap * j + 250
+            if(npc[i][j].state!=CHANGE_NPC):
+                npc[i][j].x = NPC_gap * j + 250
             npc[i][j].y = NPC_gap * i + 100
             game_world.add_object(npc[i][j], COLUMN_MAX-i)
 def initialize_NPC(start_position):
@@ -85,9 +86,9 @@ def make_new_NPC_row(empty_position):
     next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
     npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
 
-   # if(cnt.count>=25):
-       # if ((cnt.count ) % 5==0):
-        #   choice_Change_NPC(empty_position)
+    if(cnt.count>=25):
+        #if ((cnt.count ) % 5==0):
+        choice_Change_NPC(next_empty_position)
 
 def change_NPC_column():
 
@@ -98,7 +99,7 @@ def change_NPC_column():
             make_new_NPC_row(i)
     remove_all_NPC_objectlist()
     normalize_NPC_position()
-    print('........')
+    print('%d, %d, %d, %d  ' % (npc[0][0].state,npc[0][1].state,npc[0][2].state,npc[0][3].state))
 def move_NPC(move_distance):
     disappear_postion=-100
     appear_positon=600
@@ -109,12 +110,11 @@ def move_NPC(move_distance):
             npc[i][j].y=max((i-1)*100+100,npc[i][j].y)
             if npc[i][j].y==disappear_postion:
                 npc[i][j].y=appear_positon
-            #if (npc[i][j].state == CHANGE_NPC):
-               # if (npc[i][max(0,j - 1)].state == EMPTY):
-                  #  npc[i][j].change(j, j - 1, i)
-              #  elif (npc[i][min(3,j + 1)].state == EMPTY):
-                 #   npc[i][j].change(j, j + 1, i)
-    print(npc[4][2].y)
+            if (npc[i][j].state == CHANGE_NPC):
+                if (npc[i][max(0,j - 1)].state == EMPTY):
+                    npc[i][j].change(j, j - 1, i,move_distance)
+                elif (npc[i][min(3,j + 1)].state == EMPTY):
+                    npc[i][j].change(j, j + 1,i ,move_distance)
 
 
 def enter():
