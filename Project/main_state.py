@@ -94,12 +94,11 @@ def change_NPC_column():
     for i in range(1,COLUMN_MAX):      #move NPC list position column minus 1
         npc[i-1], npc[i]=npc[i],npc[i-1]
     for i in range(0,ROW_MAX):
-        print(i)
         if (npc[COLUMN_MAX-2][i].state==EMPTY):
             make_new_NPC_row(i)
     remove_all_NPC_objectlist()
     normalize_NPC_position()
-
+    print('........')
 def move_NPC(move_distance):
     disappear_postion=-100
     appear_positon=600
@@ -107,7 +106,7 @@ def move_NPC(move_distance):
     for i in range(0, COLUMN_MAX):  #move NPC column Position
         for j in range(0,ROW_MAX):
             npc[i][j].y-=move_distance
-            npc[i][j].y=max((i-1)*100,npc[i][j].y)
+            npc[i][j].y=max((i-1)*100+100,npc[i][j].y)
             if npc[i][j].y==disappear_postion:
                 npc[i][j].y=appear_positon
             #if (npc[i][j].state == CHANGE_NPC):
@@ -115,6 +114,7 @@ def move_NPC(move_distance):
                   #  npc[i][j].change(j, j - 1, i)
               #  elif (npc[i][min(3,j + 1)].state == EMPTY):
                  #   npc[i][j].change(j, j + 1, i)
+    print(npc[4][2].y)
 
 
 def enter():

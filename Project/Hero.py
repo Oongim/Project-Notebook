@@ -60,6 +60,7 @@ class RunState:
         Hero.x=100*Hero.position+250
         main_state.change_NPC_column()
         main_state.map.normalize_position()
+        main_state.cnt.update(main_state.map.y[0])
         main_state.cnt.plus_count()
         if Hero.Collosion()==1:
             Hero.frame = 0
