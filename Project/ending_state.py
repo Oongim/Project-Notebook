@@ -23,7 +23,7 @@ class Judge:
 
 
 def enter():
-    global judge,frame,back,NPC_LINE,font,font_y,hour,minute
+    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text
     font_y=870
     NPC_LINE = 4
     back=Ending_Map()
@@ -36,7 +36,10 @@ def enter():
 
     hour=11+(30+main_state.frame_time//2)//60
     minute=((30+main_state.frame_time//2)%60)
-
+    if(main_state.frame_time<120):
+        ending_text=load_image('Resource\ending\\over_time.png')
+    else:
+        ending_text = load_image('Resource\ending\\over_time.png')
 def exit():
     global judge,back,font
     main_state.remove_all_NPC_objectlist()
@@ -62,7 +65,7 @@ def update():
         NPC_LINE-=1
         font_y-=100
 def draw():
-    global font_y,hour,minute
+    global font_y,hour,minute,ending_text
     clear_canvas()
 
     for game_object in game_world.all_objects():
@@ -74,6 +77,8 @@ def draw():
         font.draw(490, font_y, '%d' % minute, (255, 0, 0))
     else:
         font.draw(420, font_y, '%d'%minute, (255, 0, 0))
+
+    ending_text.draw_now(400, 400)
     update_canvas()
     delay(0.1)
 
@@ -86,7 +91,7 @@ def handle_events():
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
-            elif (event.type) == (SDL_KEYDOWN):
+            elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
                 game_framework.change_state(title_state)
 
 def pause(): pass
