@@ -2,7 +2,7 @@ from pico2d import *
 import random
 import game_framework
 import game_world
-
+import ending_state
 from Hero import Hero
 from NPC import NPC
 from Map import Map
@@ -39,7 +39,7 @@ UP_DIRECTION,DOWN_DIRECTION,LEFT_DIRECTION,RIGHT_DIRECTION,EMPTY,CHANGE_NPC =ran
 
 COLUMN_MAX=7
 ROW_MAX=4
-END_COUNT=200-COLUMN_MAX
+END_COUNT=200
 NPC_gap=100
 
 def remove_all_NPC_objectlist():
@@ -84,15 +84,17 @@ def make_new_NPC_row(empty_position):
         npc[COLUMN_MAX-1][i].form = random.randint(0, 8)
         npc[COLUMN_MAX-1][i].state = UP_DIRECTION
         game_world.remove_object(npc[COLUMN_MAX-1][i])
-    if (cnt.count <= END_COUNT):
-        next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
-        npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
 
-        if ((cnt.count ) % level_of_difficulty==0and cnt.count!=0):
-            choice_Change_NPC(next_empty_position)
+    next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
+    npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
+
+    if ((cnt.count ) % level_of_difficulty==0and cnt.count!=0):
+        choice_Change_NPC(next_empty_position)
 def regulate_level():
     global level_of_difficulty
-    if(cnt.count >= 170):
+    if (cnt.count == END_COUNT):
+        game_framework.change_state(ending_state)
+    elif(cnt.count >= 170):
         level_of_difficulty =1
     elif (cnt.count >= 140):
         level_of_difficulty = 2
