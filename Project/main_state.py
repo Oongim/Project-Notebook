@@ -39,7 +39,7 @@ UP_DIRECTION,DOWN_DIRECTION,LEFT_DIRECTION,RIGHT_DIRECTION,EMPTY,CHANGE_NPC =ran
 
 COLUMN_MAX=7
 ROW_MAX=4
-
+END_COUNT=200-COLUMN_MAX
 NPC_gap=100
 
 def remove_all_NPC_objectlist():
@@ -79,27 +79,45 @@ def choice_Change_NPC(empty_position):
     npc[COLUMN_MAX - 1][changed_position].x+=(empty_position-changed_position)*NPC_gap
 
 def make_new_NPC_row(empty_position):
+    global level_of_difficulty
     for i in range(0, ROW_MAX):
         npc[COLUMN_MAX-1][i].form = random.randint(0, 8)
         npc[COLUMN_MAX-1][i].state = UP_DIRECTION
         game_world.remove_object(npc[COLUMN_MAX-1][i])
-    next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
-    npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
+    if (cnt.count <= END_COUNT):
+        next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
+        npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
 
-    if(cnt.count>=25):
-        #if ((cnt.count ) % 5==0):
-        choice_Change_NPC(next_empty_position)
+        if ((cnt.count ) % level_of_difficulty==0and cnt.count!=0):
+            choice_Change_NPC(next_empty_position)
+def regulate_level():
+    global level_of_difficulty
+    if(cnt.count >= 170):
+        level_of_difficulty =1
+    elif (cnt.count >= 140):
+        level_of_difficulty = 2
+    elif (cnt.count >= 100):
+        level_of_difficulty = 3
+    elif(cnt.count >= 50):
+        level_of_difficulty=4
+    elif (cnt.count >= 25):
+        level_of_difficulty = 5
+
 
 def change_NPC_column():
 
     for i in range(1,COLUMN_MAX):      #move NPC list position column minus 1
         npc[i-1], npc[i]=npc[i],npc[i-1]
-    for i in range(0,ROW_MAX):
-        if (npc[COLUMN_MAX-2][i].state==EMPTY):
-            make_new_NPC_row(i)
+    if (cnt.count <= END_COUNT):
+        for i in range(0,ROW_MAX):
+            if (npc[COLUMN_MAX-2][i].state==EMPTY):
+                make_new_NPC_row(i)
+    else:
+        make_new_NPC_row(0)
     remove_all_NPC_objectlist()
     normalize_NPC_position()
     print('%d, %d, %d, %d  ' % (npc[0][0].state,npc[0][1].state,npc[0][2].state,npc[0][3].state))
+
 def move_NPC(move_distance):
     disappear_postion=-100
     appear_positon=600
@@ -118,7 +136,9 @@ def move_NPC(move_distance):
 
 
 def enter():
-    global hero,npc,end,map,cnt
+    global hero,npc,end,map,cnt,level_of_difficulty
+
+    level_of_difficulty=25
 
     map=Map()
     cnt=Count()
@@ -164,7 +184,7 @@ def handle_events():
 
 def update():
     hero.update()
-
+    regulate_level()
 def draw():
     clear_canvas()
     #################################

@@ -25,7 +25,7 @@ def enter():
     back=load_image('Resource\ending\Counter.png')
     judge = [Judge() for i in range(4)]
     for i in range(4):
-        judge[i].x=260+100*i
+        judge[i].x=260+98*i
 def exit():
     global judge,back,font
     del (judge)
