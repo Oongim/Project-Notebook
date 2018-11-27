@@ -23,7 +23,7 @@ class Judge:
 
 
 def enter():
-    global judge,frame,back,NPC_LINE,font,font_y
+    global judge,frame,back,NPC_LINE,font,font_y,hour,minute
     font_y=870
     NPC_LINE = 4
     back=Ending_Map()
@@ -33,6 +33,9 @@ def enter():
         judge[i].x=260+98*i
         game_world.add_object(judge[i], 0)
     font = load_font('Resource\ending\\DS-DIGIT.ttf', 150)
+
+    hour=11+(30+main_state.frame_time//2)//60
+    minute=((30+main_state.frame_time//2)%60)
 
 def exit():
     global judge,back,font
@@ -59,14 +62,18 @@ def update():
         NPC_LINE-=1
         font_y-=100
 def draw():
-    global font_y
+    global font_y,hour,minute
     clear_canvas()
 
     for game_object in game_world.all_objects():
         game_object.draw()
-    font.draw(240, font_y, '12', (255, 0, 0))
-    font.draw(360, font_y, ':', (255, 0, 0))
-    font.draw(400, font_y, '54', (255, 0, 0))
+    font.draw(240, font_y, '%d' %hour , (255, 0, 0))
+    font.draw(380, font_y, ':', (255, 0, 0))
+    if(minute<10):
+        font.draw(420, font_y, '0', (255, 0, 0))
+        font.draw(490, font_y, '%d' % minute, (255, 0, 0))
+    else:
+        font.draw(420, font_y, '%d'%minute, (255, 0, 0))
     update_canvas()
     delay(0.1)
 
@@ -79,8 +86,8 @@ def handle_events():
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
-            #elif (event.type) == (SDL_KEYDOWN):
-                #game_framework.change_state(title_state)
+            elif (event.type) == (SDL_KEYDOWN):
+                game_framework.change_state(title_state)
 
 def pause(): pass
 

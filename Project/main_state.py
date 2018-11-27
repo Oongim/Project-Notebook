@@ -3,10 +3,11 @@ import random
 import game_framework
 import game_world
 import ending_state
+import time
 from Hero import Hero
 from NPC import NPC
 from Map import Map
-
+frame_time = 0.0
 class Count:
     def __init__(self):
         self.x=730
@@ -39,7 +40,7 @@ UP_DIRECTION,DOWN_DIRECTION,LEFT_DIRECTION,RIGHT_DIRECTION,EMPTY,CHANGE_NPC =ran
 
 COLUMN_MAX=7
 ROW_MAX=4
-END_COUNT=10
+END_COUNT=200
 NPC_gap=100
 
 def remove_and_leave_NPC_for_ending():
@@ -143,8 +144,8 @@ def regulate_level():
 
 
 def enter():
-    global hero,npc,end,map,cnt,level_of_difficulty
-
+    global hero,npc,end,map,cnt,level_of_difficulty,current_time
+    current_time = time.time()
     level_of_difficulty=25
 
     map=Map()
@@ -193,8 +194,10 @@ def handle_events():
             hero.handle_event(event)
 
 def update():
+    global frame_time
     hero.update()
     regulate_level()
+    frame_time = time.time() - current_time
 def draw():
     clear_canvas()
     #################################
