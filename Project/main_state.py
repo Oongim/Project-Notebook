@@ -39,13 +39,19 @@ UP_DIRECTION,DOWN_DIRECTION,LEFT_DIRECTION,RIGHT_DIRECTION,EMPTY,CHANGE_NPC =ran
 
 COLUMN_MAX=7
 ROW_MAX=4
-END_COUNT=1
+END_COUNT=10
 NPC_gap=100
+
+def remove_and_leave_NPC_for_ending():
+    for i in range(COLUMN_MAX-2, COLUMN_MAX):  # Set NPC position
+        for j in range(0, ROW_MAX):
+            game_world.remove_object(npc[i][j])
 
 def remove_all_NPC_objectlist():
     for i in range(0, COLUMN_MAX):  # Set NPC position
         for j in range(0, ROW_MAX):
             game_world.remove_object(npc[i][j])
+
 
 def normalize_NPC_position():
     for i in range(0, COLUMN_MAX):  # Set NPC position
@@ -70,7 +76,6 @@ def draw_NPC():
             if(npc[i][j].y!=0):
                 npc[i][j].draw()
 
-
 def choice_Change_NPC(empty_position):
     changed_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
     while(empty_position==changed_position):
@@ -84,33 +89,19 @@ def make_new_NPC_row(empty_position):
         npc[COLUMN_MAX-1][i].form = random.randint(0, 8)
         npc[COLUMN_MAX-1][i].state = UP_DIRECTION
         game_world.remove_object(npc[COLUMN_MAX-1][i])
+    if((cnt.count +COLUMN_MAX)<=END_COUNT):
+        next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
+        npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
 
-    next_empty_position = random.randint(max(0, empty_position - 1), min(3, empty_position + 1))
-    npc[COLUMN_MAX-1][next_empty_position].state = EMPTY
-
-    if ((cnt.count ) % level_of_difficulty==0and cnt.count!=0):
-        choice_Change_NPC(next_empty_position)
-def regulate_level():
-    global level_of_difficulty
-    if (cnt.count == END_COUNT):
-        game_framework.change_state(ending_state)
-    elif(cnt.count >= 170):
-        level_of_difficulty =1
-    elif (cnt.count >= 140):
-        level_of_difficulty = 2
-    elif (cnt.count >= 100):
-        level_of_difficulty = 3
-    elif(cnt.count >= 50):
-        level_of_difficulty=4
-    elif (cnt.count >= 25):
-        level_of_difficulty = 5
+        if ((cnt.count ) % level_of_difficulty==0and cnt.count!=0):
+            choice_Change_NPC(next_empty_position)
 
 
 def change_NPC_column():
 
     for i in range(1,COLUMN_MAX):      #move NPC list position column minus 1
         npc[i-1], npc[i]=npc[i],npc[i-1]
-    if (cnt.count <= END_COUNT):
+    if (cnt.count+COLUMN_MAX <= END_COUNT):
         for i in range(0,ROW_MAX):
             if (npc[COLUMN_MAX-2][i].state==EMPTY):
                 make_new_NPC_row(i)
@@ -118,7 +109,6 @@ def change_NPC_column():
         make_new_NPC_row(0)
     remove_all_NPC_objectlist()
     normalize_NPC_position()
-    print('%d, %d, %d, %d  ' % (npc[0][0].state,npc[0][1].state,npc[0][2].state,npc[0][3].state))
 
 def move_NPC(move_distance):
     disappear_postion=-100
@@ -135,6 +125,21 @@ def move_NPC(move_distance):
                     npc[i][j].change(j, j - 1, i,move_distance)
                 elif (npc[i][min(3,j + 1)].state == EMPTY):
                     npc[i][j].change(j, j + 1,i ,move_distance)
+
+def regulate_level():
+    global level_of_difficulty
+    if (cnt.count == END_COUNT):
+        game_framework.change_state(ending_state)
+    elif(cnt.count >= 170):
+        level_of_difficulty =1
+    elif (cnt.count >= 140):
+        level_of_difficulty = 2
+    elif (cnt.count >= 100):
+        level_of_difficulty = 3
+    elif(cnt.count >= 50):
+        level_of_difficulty=4
+    elif (cnt.count >= 25):
+        level_of_difficulty = 5
 
 
 def enter():
@@ -155,17 +160,20 @@ def enter():
     game_world.add_object(map,0)
     game_world.add_object(cnt, 0)
 def exit():
-    global hero, npc,map
-    remove_all_NPC_objectlist()
-    game_world.remove_object(hero)
-    game_world.remove_object(map)
+    global hero, npc,map,cnt
+
     game_world.remove_object(cnt)
+    game_world.remove_object(map)
+    del (map)
 
-    del(hero)
-    del(npc)
-    del(map)
-
-
+    if(cnt.count!=END_COUNT):
+        remove_all_NPC_objectlist()
+        game_world.remove_object(hero)
+        del(hero)
+        del(npc)
+    else:
+        del (cnt)
+        remove_and_leave_NPC_for_ending()
 
 def pause():
     pass

@@ -2,9 +2,9 @@ import game_framework
 import title_state
 import main_state
 import random
-
+import game_world
 from pico2d import *
-
+from Map import Ending_Map
 class Judge:
     sprite_position = [[82, 140], [82, 140], [82, 140], [98, 140], [98, 140], [84, 0]]
     def __init__(self):
@@ -15,24 +15,32 @@ class Judge:
                  load_image('Resource\ending\\4.png')]
         self.frame = random.randint(0, 3)
         self.x=0
-        self.y=480
+        self.y=580
     def draw(self):
         self.image[self.frame].clip_draw(0,0,Judge.sprite_position[self.frame][0], Judge.sprite_position[self.frame][1], self.x, self.y)
     def update(self):
         self.frame = (self.frame + 1) % 5
 def enter():
-    global judge,frame,back,font
-    font = load_font('서울남산 장체B.ttf', 16)
-    back=load_image('Resource\ending\Counter.png')
+    global judge,frame,back
+    back=Ending_Map()
+    game_world.add_object(back, 0)
     judge = [Judge() for i in range(4)]
     for i in range(4):
         judge[i].x=260+98*i
+        game_world.add_object(judge[i], 0)
+
+
 def exit():
-    global judge,back,font
+    global judge,back
+    main_state.remove_all_NPC_objectlist()
+    main_state.game_world.remove_object(main_state.hero)
+    game_world.remove_object(back)
+
+    del(main_state.hero)
+    del(main_state.npc)
     del (judge)
     del(back)
-    del(font)
-    del(main_state.cnt)
+
 def update():
     global frame
     for i in range(4):
@@ -40,9 +48,11 @@ def update():
 
 def draw():
     clear_canvas()
-    back.draw_now(400, 200)
-    for i in range(4):
-        judge[i].draw()
+
+    for game_object in game_world.all_objects():
+        game_object.draw()
+    #for i in range(4):
+        #judge[i].draw()
     update_canvas()
     delay(0.1)
 

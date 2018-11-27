@@ -21,3 +21,13 @@ class Map:
         self.position_num-=1
         if(self.position_num==-3):
             self.position_num = 3
+
+class Ending_Map:
+    def __init__(self):
+        self.y = 300
+        self.image = load_image('Resource\ending\Counter.png')
+
+    def update(self):
+        pass
+    def draw(self):
+        self.image.draw_now(400,self.y)
