@@ -20,8 +20,11 @@ class Judge:
         self.image[self.frame].clip_draw(0,0,Judge.sprite_position[self.frame][0], Judge.sprite_position[self.frame][1], self.x, self.y)
     def update(self):
         self.frame = (self.frame + 1) % 5
+
+
 def enter():
-    global judge,frame,back
+    global judge,frame,back,NPC_LINE
+    NPC_LINE = 4
     back=Ending_Map()
     game_world.add_object(back, 0)
     judge = [Judge() for i in range(4)]
@@ -42,17 +45,22 @@ def exit():
     del(back)
 
 def update():
-    global frame
+    global frame,NPC_LINE
     for i in range(4):
         judge[i].update()
-
+    main_state.hero.update()
+    if(main_state.hero.frame==10 and NPC_LINE!=0):
+        back.y-=main_state.NPC_gap
+        for i in range(4):
+            judge[i].y -=main_state.NPC_gap
+        for j in range(0, main_state.ROW_MAX):
+            game_world.remove_object(main_state.npc[NPC_LINE][j])
+        NPC_LINE-=1
 def draw():
     clear_canvas()
 
     for game_object in game_world.all_objects():
         game_object.draw()
-    #for i in range(4):
-        #judge[i].draw()
     update_canvas()
     delay(0.1)
 
@@ -65,8 +73,8 @@ def handle_events():
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
-            elif (event.type) == (SDL_KEYDOWN):
-                game_framework.change_state(title_state)
+            #elif (event.type) == (SDL_KEYDOWN):
+                #game_framework.change_state(title_state)
 
 def pause(): pass
 
