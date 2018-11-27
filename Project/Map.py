@@ -24,10 +24,11 @@ class Map:
 
 class Ending_Map:
     def __init__(self):
-        self.y = 300
-        self.image = load_image('Resource\ending\Counter.png')
+        self.y = 550
+        self.image = load_image('Resource\ending\Test2.png')
 
     def update(self):
         pass
     def draw(self):
-        self.image.draw_now(400,self.y)
+        #self.image.draw_now(400,self.y)
+        self.image.clip_draw(0, 0, 800, 1500, 400, self.y)

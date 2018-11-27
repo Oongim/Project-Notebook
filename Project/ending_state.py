@@ -23,7 +23,8 @@ class Judge:
 
 
 def enter():
-    global judge,frame,back,NPC_LINE
+    global judge,frame,back,NPC_LINE,font,font_y
+    font_y=870
     NPC_LINE = 4
     back=Ending_Map()
     game_world.add_object(back, 0)
@@ -31,10 +32,10 @@ def enter():
     for i in range(4):
         judge[i].x=260+98*i
         game_world.add_object(judge[i], 0)
-
+    font = load_font('Resource\ending\\DS-DIGIT.ttf', 150)
 
 def exit():
-    global judge,back
+    global judge,back,font
     main_state.remove_all_NPC_objectlist()
     main_state.game_world.remove_object(main_state.hero)
     game_world.remove_object(back)
@@ -43,9 +44,9 @@ def exit():
     del(main_state.npc)
     del (judge)
     del(back)
-
+    del (font)
 def update():
-    global frame,NPC_LINE
+    global frame,NPC_LINE,font_y
     for i in range(4):
         judge[i].update()
     main_state.hero.update()
@@ -56,11 +57,16 @@ def update():
         for j in range(0, main_state.ROW_MAX):
             game_world.remove_object(main_state.npc[NPC_LINE][j])
         NPC_LINE-=1
+        font_y-=100
 def draw():
+    global font_y
     clear_canvas()
 
     for game_object in game_world.all_objects():
         game_object.draw()
+    font.draw(240, font_y, '12', (255, 0, 0))
+    font.draw(360, font_y, ':', (255, 0, 0))
+    font.draw(400, font_y, '54', (255, 0, 0))
     update_canvas()
     delay(0.1)
 
