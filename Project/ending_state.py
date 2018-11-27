@@ -6,6 +6,7 @@ import random
 from pico2d import *
 
 class Judge:
+    sprite_position = [[82, 140], [82, 140], [82, 140], [98, 140], [98, 140], [84, 0]]
     def __init__(self):
         self.image = [load_image('Resource\ending\\0.png'),
                  load_image('Resource\ending\\1.png'),
@@ -16,9 +17,9 @@ class Judge:
         self.x=0
         self.y=480
     def draw(self):
-        self.image[self.frame].draw_now(self.x, self.y)
+        self.image[self.frame].clip_draw(0,0,Judge.sprite_position[self.frame][0], Judge.sprite_position[self.frame][1], self.x, self.y)
     def update(self):
-        self.frame = (self.frame + 1) % 4
+        self.frame = (self.frame + 1) % 5
 def enter():
     global judge,frame,back,font
     font = load_font('서울남산 장체B.ttf', 16)
