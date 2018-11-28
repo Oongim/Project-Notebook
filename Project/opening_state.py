@@ -8,7 +8,7 @@ image = None
 
 
 def enter():
-    global image,textbox,text,font,text_cnt,text_sequence,image_sequence,fonts
+    global image,textbox,text,font,text_cnt,text_sequence,image_sequence,fonts,bgm
     image = [load_image('Resource\opening\clock.png'),
              load_image('Resource\opening\People1.png'),
              load_image('Resource\opening\opening3.png')]
@@ -24,12 +24,16 @@ def enter():
     text_cnt=0
     text_sequence=0
     image_sequence=0
+    bgm = load_music('Resource\\Music\\opening_bgm.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
 def exit():
-    global image,textbox,font,fonts
+    global image,textbox,font,fonts,bgm
     del(image)
     del(textbox)
     del(font)
     del(fonts)
+    del(bgm)
 def handle_events():
    events=get_events()
    for event in events:

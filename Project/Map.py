@@ -5,6 +5,10 @@ class Map:
         self.y=[300,900]
         self.position_num=3
         self.image=load_image('Resource\\mapUp.png')
+        self.bgm=load_music('Resource\\Music\\main_bgm.mp3')
+        self.bgm.set_volume(64)
+        self.bgm.repeat_play()
+
     def update(self,move_distance):
         for i in range(2):
             self.y[i] -= move_distance

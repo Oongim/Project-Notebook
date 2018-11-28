@@ -8,19 +8,22 @@ image = None
 
 
 def enter():
-    global image,hero,frame,name,press
+    global image,hero,frame,name,press,bgm
     frame=0
     image = load_image('Resource\\title.png')
     hero=load_image('Resource\hero\\main.png')
     name=load_image('Resource\\HakSick.png')
     press=load_image('Resource\\Press.png')
+    bgm = load_music('Resource\\Music\\title_bgm.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
 def exit():
-    global image,hero,name,press
+    global image,hero,name,press,bgm
     del(image)
     del(hero)
     del(name)
     del(press)
-
+    del(bgm)
 def handle_events():
    events=get_events()
    for event in events:

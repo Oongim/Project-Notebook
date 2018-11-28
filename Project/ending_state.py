@@ -23,7 +23,7 @@ class Judge:
 
 
 def enter():
-    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text,ending_text_size,opacify,press_space,fade_in
+    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text,ending_text_size,opacify,press_space,fade_in,bgm
     font_y=870
     NPC_LINE = 4
     back=Ending_Map()
@@ -45,8 +45,11 @@ def enter():
     press_space=load_image('Resource\ending\\press_space.png')
     opacify=[1,0,0]
     fade_in=load_image('Resource\ending\\fade_in.png')
+    bgm = load_music('Resource\\Music\\ending_bgm.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
 def exit():
-    global judge,back,font,ending_text,press_space,fade_in
+    global judge,back,font,ending_text,press_space,fade_in,bgm
     main_state.remove_all_NPC_objectlist()
     main_state.game_world.remove_object(main_state.hero)
     game_world.remove_object(back)
@@ -59,6 +62,7 @@ def exit():
     del(ending_text)
     del(press_space)
     del(fade_in)
+    del(bgm)
 def update():
     global frame,NPC_LINE,font_y,opacify
     if (opacify[0] >0.1):

@@ -5,7 +5,7 @@ import main_state
 from pico2d import *
 
 def enter():
-    global death,frame,back,font
+    global death,frame,back,font,bgm
     font = load_font('서울남산 장체B.ttf', 16)
     back=load_image('Resource\hero\Death\\death.png')
     death = [load_image('Resource\hero\Death\\1.png'),
@@ -29,13 +29,16 @@ def enter():
                   load_image('Resource\hero\Death\\19.png'),
                   load_image('Resource\hero\Death\\20.png')]
     frame=0
-
+    bgm = load_music('Resource\\Music\\death_bgm.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
 def exit():
-    global death,back,font
+    global death,back,font,bgm
     del (death)
     del(back)
     del(font)
     del(main_state.cnt)
+    del(bgm)
 def update():
     global frame
     if (frame < 19):
