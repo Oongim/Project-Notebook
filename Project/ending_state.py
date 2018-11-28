@@ -16,11 +16,17 @@ class Judge:
         self.frame = random.randint(0, 3)
         self.x=0
         self.y=580
+        self.hammer = load_wav('Resource\\ending\\hammer.wav')
+        self.hammer.set_volume(10)
+
+    def hit_hammer(self):
+        self.hammer.play()
     def draw(self):
         self.image[self.frame].clip_draw(0,0,Judge.sprite_position[self.frame][0], Judge.sprite_position[self.frame][1], self.x, self.y)
     def update(self):
         self.frame = (self.frame + 1) % 5
-
+        if(self.frame==4):
+            self.hit_hammer()
 
 def enter():
     global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text,ending_text_size,opacify,press_space,fade_in,bgm
@@ -46,7 +52,7 @@ def enter():
     opacify=[1,0,0]
     fade_in=load_image('Resource\ending\\fade_in.png')
     bgm = load_music('Resource\\Music\\ending_bgm.mp3')
-    bgm.set_volume(64)
+    bgm.set_volume(50)
     bgm.repeat_play()
 def exit():
     global judge,back,font,ending_text,press_space,fade_in,bgm

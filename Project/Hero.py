@@ -53,7 +53,7 @@ class RunState:
             Hero.velocity = -1
         elif event == UP_DOWN:
             Hero.velocity = 0
-
+        Hero.cut_in_line()
     @staticmethod
     def exit(Hero, event):
         Hero.frame = 0
@@ -126,9 +126,12 @@ class Hero:
                      load_image('Resource\hero\Collosion\\2.png'),
                      load_image('Resource\hero\Collosion\\3.png'),
                      load_image('Resource\hero\Collosion\\4.png')]
+        self.cut_in_line_sound = load_wav('Resource\Music\\cut_in_line.wav')
+        self.cut_in_line_sound.set_volume(50)
 
-
-
+    def cut_in_line(self):
+        self.cut_in_line_sound.play()
+        pass
     def add_event(self, event):
          self.event_que.insert(0, event)
 
