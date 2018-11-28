@@ -23,7 +23,7 @@ class Judge:
 
 
 def enter():
-    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text
+    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text,opacify,press_space,fade_in
     font_y=870
     NPC_LINE = 4
     back=Ending_Map()
@@ -37,11 +37,14 @@ def enter():
     hour=11+(30+main_state.frame_time//2)//60
     minute=((30+main_state.frame_time//2)%60)
     if(main_state.frame_time<120):
-        ending_text=load_image('Resource\ending\\over_time.png')
+        ending_text=load_image('Resource\ending\\in_time.png')
     else:
         ending_text = load_image('Resource\ending\\over_time.png')
+    press_space=load_image('Resource\ending\\press_space.png')
+    opacify=[1,0,0]
+    fade_in=load_image('Resource\ending\\fade_in.png')
 def exit():
-    global judge,back,font
+    global judge,back,font,ending_text,press_space,fade_in
     main_state.remove_all_NPC_objectlist()
     main_state.game_world.remove_object(main_state.hero)
     game_world.remove_object(back)
@@ -51,8 +54,15 @@ def exit():
     del (judge)
     del(back)
     del (font)
+    del(ending_text)
+    del(press_space)
+    del(fade_in)
 def update():
-    global frame,NPC_LINE,font_y
+    global frame,NPC_LINE,font_y,opacify
+    if (opacify[0] >0.1):
+        print(opacify[0])
+        opacify[0] -= 0.1
+        return
     for i in range(4):
         judge[i].update()
     main_state.hero.update()
@@ -64,8 +74,12 @@ def update():
             game_world.remove_object(main_state.npc[NPC_LINE][j])
         NPC_LINE-=1
         font_y-=100
+    if(NPC_LINE==0 and opacify[1]<0.9):
+        opacify[1]+=0.1
+    if(NPC_LINE==0 and opacify[1]>=0.9):
+        opacify[2] += 0.1
 def draw():
-    global font_y,hour,minute,ending_text
+    global font_y,hour,minute,ending_text,opacify,fade_in,press_space
     clear_canvas()
 
     for game_object in game_world.all_objects():
@@ -78,7 +92,15 @@ def draw():
     else:
         font.draw(420, font_y, '%d'%minute, (255, 0, 0))
 
+    fade_in.opacify(opacify[0])
+    fade_in.draw_now(400, 300)
+
+    ending_text.opacify(opacify[1])
     ending_text.draw_now(400, 400)
+
+    press_space.opacify(opacify[2])
+    press_space.draw_now(400, 300)
+
     update_canvas()
     delay(0.1)
 
