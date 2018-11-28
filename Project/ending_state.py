@@ -23,7 +23,7 @@ class Judge:
 
 
 def enter():
-    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text,opacify,press_space,fade_in
+    global judge,frame,back,NPC_LINE,font,font_y,hour,minute,ending_text,ending_text_size,opacify,press_space,fade_in
     font_y=870
     NPC_LINE = 4
     back=Ending_Map()
@@ -38,8 +38,10 @@ def enter():
     minute=((30+main_state.frame_time//2)%60)
     if(main_state.frame_time<120):
         ending_text=load_image('Resource\ending\\in_time.png')
+        ending_text_size=[596,114]
     else:
         ending_text = load_image('Resource\ending\\over_time.png')
+        ending_text_size = [640, 237]
     press_space=load_image('Resource\ending\\press_space.png')
     opacify=[1,0,0]
     fade_in=load_image('Resource\ending\\fade_in.png')
@@ -60,7 +62,6 @@ def exit():
 def update():
     global frame,NPC_LINE,font_y,opacify
     if (opacify[0] >0.1):
-        print(opacify[0])
         opacify[0] -= 0.1
         return
     for i in range(4):
@@ -79,7 +80,7 @@ def update():
     if(NPC_LINE==0 and opacify[1]>=0.9):
         opacify[2] += 0.1
 def draw():
-    global font_y,hour,minute,ending_text,opacify,fade_in,press_space
+    global font_y,hour,minute,ending_text,opacify,fade_in,press_space,ending_text_size
     clear_canvas()
 
     for game_object in game_world.all_objects():
@@ -91,15 +92,15 @@ def draw():
         font.draw(490, font_y, '%d' % minute, (255, 0, 0))
     else:
         font.draw(420, font_y, '%d'%minute, (255, 0, 0))
-
-    fade_in.opacify(opacify[0])
-    fade_in.draw_now(400, 300)
+    if (opacify[0] > 0.1):
+        fade_in.opacify(opacify[0])
+        fade_in.draw_now(400, 300)
 
     ending_text.opacify(opacify[1])
-    ending_text.draw_now(400, 400)
+    ending_text.clip_draw(0,0,ending_text_size[0], ending_text_size[1], 400, 400)
 
     press_space.opacify(opacify[2])
-    press_space.draw_now(400, 300)
+    press_space.clip_draw(0,0,466, 87, 400, 300)
 
     update_canvas()
     delay(0.1)
