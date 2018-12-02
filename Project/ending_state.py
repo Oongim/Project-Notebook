@@ -43,8 +43,9 @@ def enter():
     hour=11+(30+main_state.frame_time//2)//60
     minute=((30+main_state.frame_time//2)%60)
     if(main_state.frame_time<120):
-        ending_text=load_image('Resource\ending\\in_time.png')
-        ending_text_size=[596,114]
+        ending_text=load_image('Resource\ending\\over_time.png')
+        ending_text_size = [640, 237]
+        #ending_text_size=[596,114]
     else:
         ending_text = load_image('Resource\ending\\over_time.png')
         ending_text_size = [640, 237]
